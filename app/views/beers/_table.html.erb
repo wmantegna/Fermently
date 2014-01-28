@@ -30,7 +30,7 @@
 		</td>
 		<td>
 			<%= link_to "Show", beer_path(b) %>
-			<% if user_signed_in? && b.users.find(current_user) %>
+			<% if user_signed_in? #&& b.users.find(current_user) %>
 				 | <%= link_to "Edit", edit_beer_path(b) %> | 
 				<%= link_to "Delete", b, method: :delete, data: {confirm: "Are you sure you want to delete this beer?" } %>
 			<% end %>
