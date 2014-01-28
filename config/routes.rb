@@ -4,7 +4,6 @@ Fermently::Application.routes.draw do
   resources :beer_styles
 
   get "/about.html", to: "home#about"
-  get "/beers/search", to: "beers#search"
 
   resources :beers
 

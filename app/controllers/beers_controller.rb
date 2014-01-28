@@ -1,10 +1,11 @@
 class BeersController < ApplicationController
   
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @beers = current_user.beers.order(dateBrewed: :desc)
+    @beers = Beer.search_for(params[:query])
+    #@beers = current_user.beers.order(dateBrewed: :desc)
   end
 
   def new
@@ -38,11 +39,6 @@ class BeersController < ApplicationController
   def destroy
     @beer.destroy
     redirect_to beers_path
-  end
-
-  def search
-    @query = params[:query].to_s
-    @beers = Beer.search_for(params[:query])
   end
 
   private

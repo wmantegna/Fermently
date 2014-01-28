@@ -10,6 +10,7 @@
 		<th>Priming</th>
 		<th>Brewer Rating</th>
 		<th>Brewer(s)</th>
+		<th>Links</th>
 	</tr>
 <% @beers.each do |b| %>
 	<tr>
@@ -25,6 +26,13 @@
 		<td>
 			<% b.users.each do |u| %>
 				<%= link_to u.username, "/#{u.username}" %><br />
+			<% end %>
+		</td>
+		<td>
+			<%= link_to "Show", beer_path(b) %>
+			<% if user_signed_in? && b.users.find(current_user) %>
+				 | <%= link_to "Edit", edit_beer_path(b) %> | 
+				<%= link_to "Delete", b, method: :delete, data: {confirm: "Are you sure you want to delete this beer?" } %>
 			<% end %>
 		</td>
 	</tr>

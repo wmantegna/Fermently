@@ -5,7 +5,7 @@ class Beer < ActiveRecord::Base
 	belongs_to :beer_style
 
 	def self.search_for(query)
-    @beers = Beer.where("name LIKE :query", query: "%#{query}%")
+    @beers = Beer.where("LOWER(name) LIKE LOWER(:query)", query: "%#{query}%")
   end
 
 end

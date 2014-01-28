@@ -16,7 +16,7 @@
 				<% if user_signed_in? %>
 					<%= link_to "My Beers", "/#{current_user.username}" %> | 
 				<% end %>
-				<%= link_to "Beer Search", "/beers/search" %> | 
+				<%= link_to "Beer Search", beers_path %> | 
 				<%= link_to "Beer Styles", beer_styles_path %> | 
 				<%= link_to "About us", "/about.html" %>
 			</td>
