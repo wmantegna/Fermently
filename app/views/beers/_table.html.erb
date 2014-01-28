@@ -1,0 +1,32 @@
+<table cellpadding="5" border="1">
+	<tr>
+		<th>Name</th>
+		<th>Style</th>
+		<th>OG</th>
+		<th>FG</th>
+		<th>abv</th>
+		<th>Date Brewed</th>
+		<th>Date Bottled</th>
+		<th>Priming</th>
+		<th>Brewer Rating</th>
+		<th>Brewer(s)</th>
+	</tr>
+<% @beers.each do |b| %>
+	<tr>
+		<td><%= b.name %></td>
+		<td><%= b.beer_style.name %></td>
+		<td><%= b.og %></td>
+		<td><%= b.fg %></td>
+		<td><%= b.abv %></td>
+		<td><%= b.dateBrewed %></td>
+		<td><%= b.dateBottled %></td>
+		<td><%= b.priming %></td>
+		<td><%= b.rating %></td>
+		<td>
+			<% b.users.each do |u| %>
+				<%= link_to u.username, "/#{u.username}" %><br />
+			<% end %>
+		</td>
+	</tr>
+<% end %>
+</table>

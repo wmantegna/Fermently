@@ -1,0 +1,13 @@
+<h2>Search</h2>
+
+<%= form_tag "/beers/search", method: :get do %>
+	<%= text_field_tag :query, "", size: "30", placeholder: "Search beers by name" %>
+	<%= submit_tag "Search" %>
+<% end %>
+
+<% if @query.empty? %>
+	<p>Please Search for a beer</p>
+<% else %>
+	<br />
+	<%= render "/beers/table" %>
+<% end %>
