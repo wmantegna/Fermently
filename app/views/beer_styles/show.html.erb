@@ -62,36 +62,6 @@
 <%= link_to "Beer Styles Home", beer_styles_path %></p>
 <br />
 <h2>Homebrews made with this style</h2>
-<table cellpadding="5" border="1">
-	<tr>
-		<th>Name</th>
-		<th>Rating</th>
-		<th>abv</th>
-		<th>OG</th>
-		<th>FG</th>
-		<th>Date Brewed</th>
-		<th>Date Bottled</th>
-		<th>Priming</th>
-		<th>Links</th>
-	</tr>
-<% @beers.each do |b| %>
-	<tr>
-		<td><%= b.name %></td>
-		<td><%= b.rating %></td>
-		<td><%= b.abv %></td>
-		<td><%= b.og %></td>
-		<td><%= b.fg %></td>
-		<td><%= b.dateBrewed %></td>
-		<td><%= b.dateBottled %></td>
-		<td><%= b.priming %></td>
-		<td>
-			<%= link_to "Show", beer_path(b) %> | 
-			<%= link_to "Edit", edit_beer_path(b) %> | 
-			<%= link_to "Delete", b, method: :delete %>
-		</td>
-	</tr>
-<% end %>
-</table>
-
+<%= render "beers/table" %>
 
 <p><%= link_to "Beers Home", beers_path %></p>

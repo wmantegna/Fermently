@@ -33,11 +33,6 @@ class BeerStylesController < ApplicationController
   	redirect_to "/beer_styles/#{@beerStyle.id}"
   end
 
-  def destroy
-  	@beerStyle.destroy
-  	redirect_to beer_styles_path
-  end
-
   private
   def beer_style_params
   	params.require(:beer_style).permit(:name, :category, :description, :abvMin, :abvMax, :ibuMin, :ibuMax, :ogMin, :ogMax, :fgMin, :fgMax, :srmMin, :srmMax)
