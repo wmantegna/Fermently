@@ -8,6 +8,13 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
 
+  #CanCan
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "Access denied."
+    redirect_to root_url
+  end
+
+  #Devise with username & email as login
   def login=(login)
     @login = login
   end
@@ -15,7 +22,6 @@ class ApplicationController < ActionController::Base
   def login
     @login || self.username || self.email
   end
-
 
   protected
   def configure_permitted_parameters

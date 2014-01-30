@@ -1,3 +1,5 @@
+<% if @beers.count >= 1  %>
+
 <table cellpadding="5" border="1">
 	<tr>
 		<th>Name</th>
@@ -38,3 +40,7 @@
 	</tr>
 <% end %>
 </table>
+
+<% else %>
+	<p>Oops! It seems we couldn't find any homebrews!</p>
+<% end %>

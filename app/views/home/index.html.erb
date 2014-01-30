@@ -1,10 +1,10 @@
-<h1>Welcome to Fermently!</h1>
+<h2>Welcome to Fermently!</h2>
 
 <div style="background-color:teal; width: 250px; text-align: center">
 <% if user_signed_in? %>
 	Sweet! You're already logged in!
 <% else %>
-	If you haven't done so already, please sign up to add some homebrewin' data of your own!
+	Sign up/in to add some homebrewin' data of your own!
 <% end %>
 </div>
 <h3>User Stories</h3>
@@ -14,21 +14,35 @@
 		<li class="complete">As a user, I want to have my own account.</li>
 		<li class="complete">As a user, I want to be able to log in using my email address or my username.</li>
 		<li class="complete">As a user, I want to have my own profile page.</li>
+		<li class="complete">As a user, I want my profile to have an easy-to-remember URL.</li>
 			<ul>
 				<li class="complete">fermently.com/username</li>
 			</uL>
 		<li class="complete">As a user, I want to connect beers to my profile.</li>
 		<li class="complete">As a user, I want to see a list of beers that I've brewed, in descending chronological order.</li>
-		<li class="complete">As a user, I want my profile to have an easy-to-remember URL.</li>
 		<li class="complete">As a user, I want to be able to search all beers added to the system.</li>
-		<li class="complete">As a user, I want to list a beer as being brewed with more than one brewer.</li>
 		<li class="complete">As a user, I want to be able to see my friends profile pages.</li>
-		<li>As a user, I want to be able to be friends with other profiles.</li>
-		<li>As a user, I want to add another brewer to my homebrew.</li>
+		<li class="complete">As a user, I want to be able to be followed by my friends.</li>
+		<li class="complete">As a user, I want to to follow my friends.</li>
+		<li>As a user, I want to add a brewer that I'm following to a beer that I brewed.</li>
 		<li>As a user, I want to be able to see averages of metrics for specific beers listed on it's beer style page.</li>
 		<li>As a user, I want to see a list of beer styles from BreweryDB.</li>
+		<li>As a user, I want to see a website that looks like it's from the year 2014.</li>
 		<li></li>
 		<li>As a user, I want to be able eat bacon and bagels with cream cheese.</li>
+
+		<p>
+			ADD UI FOR FOLLOWERS/FOLLOWINGS<br />
+			f = Followings.new(follower: User.last)<br />
+			User.first.followers << f<br />
+			f.save<br />
+			User.first.followers
+		</p>
+		<p>
+			ADD UI FOR MULTIPLE USERS PER BEER<br />
+			User.first.beers.first.users << @u
+		</p>
+
 	</ol>
 
 <h3><%= link_to "Search for a beer", beers_path %>

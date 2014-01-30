@@ -29,6 +29,7 @@ class BeersController < ApplicationController
   end
 
   def edit
+    @followed = Followings.where(follower: current_user)
   end
 
   def update

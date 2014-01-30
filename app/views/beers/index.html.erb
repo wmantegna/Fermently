@@ -1,3 +1,4 @@
+<h2>Beers List</h2>
 <%= form_tag "/beers", method: :get do %>
 	<%= text_field_tag :query, "", size: "30", placeholder: "Search beers by name" %>
 	<%= submit_tag "Search" %>

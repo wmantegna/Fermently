@@ -7,10 +7,12 @@ class HomeController < ApplicationController
 	end
 	
 	def profile
-		if current_user.beers.count < 1
-			@beers = nil
+		@user = User.find_by(username: params[:username])
+
+		if @user.beers.count >= 1
+			@beers = @user.beers.order(dateBrewed: :desc)
 		else
-			@beers = User.find_by(username: params[:username]).beers.order(dateBrewed: :desc)
+			@beers = []
 		end
 	end
 end

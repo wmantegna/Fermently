@@ -1,6 +1,4 @@
-<h1>Beers#edit</h1>
-<p>Find me in app/views/beers/edit.html.erb</p>
-
+<h1>Edit a Beer</h1>
 
 <%= form_for @beer do |f| %>
 	<%= f.label :name %>
@@ -28,6 +26,22 @@
 	<%= f.label :brewerComment %>
 	<%= f.text_field :brewerComment %><br />
 
+	<p>
+		Other Brewers: 
+		<% @beer.users.each do |u| %>
+			<%= puts u.username + " " %>
+		<% end %>
+	</p>
+	
+	<b>Add a Brewer: </b>
+
+<% @followed.all.each do |f| %>
+  <%= check_box_tag f.user.username, f.user.id %>
+  <label><%= f.user.username %></label> | 
+<% end %>
+
+<br />
+<br />
 	<%= f.submit %>
 <% end %>	
 <br />

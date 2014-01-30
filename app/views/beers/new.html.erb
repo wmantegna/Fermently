@@ -5,8 +5,8 @@
 	<%= f.text_field :name %><br />
 
 	<%= f.label :beer_style %>
-	
 	<%= f.collection_select :beer_style_id, BeerStyle.all, :id, :name, prompt: "" %><br />
+	
 	<%= f.label :recipe %>
 	<%= f.text_field :recipe %><br />
 	<%= f.label :og %>

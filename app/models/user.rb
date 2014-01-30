@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :beers
+  has_many :followers, class_name: 'Followings', foreign_key: 'user_id'
+  has_many :followings, class_name: 'Followings', foreign_key: 'follower_id'
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

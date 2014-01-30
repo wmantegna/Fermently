@@ -1,11 +1,14 @@
 Fermently::Application.routes.draw do
   
-  devise_for :users
+  resources :beers
   resources :beer_styles
 
-  get "/about.html", to: "home#about"
+  devise_for :users
+  resources :users do
+    resources :followings
+  end
 
-  resources :beers
+  get "/home/about.html", to: "home#about", as: :about
 
   get "/:username", to: "home#profile"
 
