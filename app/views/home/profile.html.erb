@@ -1,8 +1,8 @@
 <h2>Profile Page</h2>
 <b>Username:</b> <%= @user.username %><br />
 <b>Homebrews:</b> <%= @beers.count %><br />
-<b>Followers:</b> <%= link_to @user.followers.count.to_s + " Homebrewers", user_followings_path(@user) %><br />
-<b>Following:</b> <%= link_to @user.followings.count.to_s + " Homebrewers", user_followings_path(@user) %><br />
+<b>Followers:</b> <%= link_to @user.followers.count.to_s + " Homebrewers", show_followers_path %><br />
+<b>Following:</b> <%= link_to @user.followings.count.to_s + " Homebrewers", show_following_path %><br />
 
 <% if current_user == @user %>
 	<br />

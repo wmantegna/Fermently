@@ -1,0 +1,5 @@
+<h2>Show followers</h2>
+
+<% @user.followers.each do |follower| %>
+	<%= link_to follower.follower.username, "/#{follower.follower.username}" %><br />
+<% end %>

@@ -15,4 +15,12 @@ class HomeController < ApplicationController
 			@beers = []
 		end
 	end
+
+	def show_following
+		@user = User.find_by(username: params[:username])
+	end
+
+	def show_followers
+		@user = User.find_by(username: params[:username])
+	end
 end
