@@ -8,12 +8,11 @@ Fermently::Application.routes.draw do
     resources :followings
   end
 
-  #show user following
-  get '/:username/following', to: "home#show_following", as: "show_following"
-  get '/:username/followers', to: "home#show_followers", as: "show_followers"
-
   get "/home/about.html", to: "home#about", as: :about
 
+  #show user following, followers, and profile page
+  get '/:username/following', to: "home#show_following", as: "show_following"
+  get '/:username/followers', to: "home#show_followers", as: "show_followers"
   get "/:username", to: "home#profile"
 
   root "home#index"

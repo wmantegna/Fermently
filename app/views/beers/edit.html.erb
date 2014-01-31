@@ -29,15 +29,18 @@
 	<p>
 		Other Brewers: 
 		<% @beer.users.each do |u| %>
-			<%= puts u.username + " " %>
+			<%= check_box_tag "currentBrewers[]", u.id, value="1" %>
+  		<label><%= u.username %></label> | 
 		<% end %>
 	</p>
 	
 	<b>Add a Brewer: </b>
 
 <% @followed.all.each do |f| %>
-  <%= check_box_tag f.user.username, f.user.id %>
-  <label><%= f.user.username %></label> | 
+	<% if @beer.users.exists?(f.user) == false %>
+  	<%= check_box_tag "newBrewers[]", f.user.id %>
+  	<label><%= f.user.username %></label> | 
+  <% end %>
 <% end %>
 
 <br />

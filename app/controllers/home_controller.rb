@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 	def index
 		@beers = Beer.all.order(dateBrewed: :desc).limit(10)
+		@users = User.all.order(created_at: :desc)
 	end
 
 	def about

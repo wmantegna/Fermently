@@ -34,6 +34,11 @@ class BeersController < ApplicationController
 
   def update
   	@beer.update_attributes(beer_params)
+
+    params[:newBrewers].each do |u|
+      @beer.users << User.find(u)
+    end
+
     redirect_to beer_path
   end
 
