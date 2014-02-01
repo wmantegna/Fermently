@@ -1,8 +1,10 @@
+<h2>Show User</h2>
+
 <h2>Profile Page</h2>
 <b>Username:</b> <%= @user.username %><br />
 <b>Homebrews:</b> <%= @beers.count %><br />
-<b>Followers:</b> <%= link_to @user.followers.count.to_s + " Homebrewers", show_followers_path %><br />
-<b>Following:</b> <%= link_to @user.followings.count.to_s + " Homebrewers", show_following_path %><br />
+<b>Followers:</b> <%= link_to @user.followers.count.to_s + " Homebrewers", user_followings_path(@user) %><br />
+<b>Following:</b> <%= link_to @user.followings.count.to_s + " Homebrewers", user_followings_path(@user) %><br />
 
 <% if current_user == @user %>
 	<br />
@@ -14,25 +16,18 @@
 <% #Follow %>
 <% if current_user != @user %>
 	<% if @user.followers.exists?(follower: current_user) %>
-
 		You are following <%= @user.username %><br />
-
 		<% @following = current_user.followings.where(user: @user).first %>
 		<%= link_to "Stop following #{@user.username}", delete_user_following_path(@user, @following) %><br />
-
 	<% else %>
-
 		<%= link_to "Follow", new_user_following_path(@user, current_user) %>
-
 	<% end %>
 <% end %>
 
 <% #user is Following you %>
 <% if user_signed_in? %>
 	<% if current_user.followers.exists?(follower: @user) %>
-		
 		<%= @user.username %> is following You<br />
-	
 	<% end %>
 <% end %>
 

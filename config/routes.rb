@@ -5,7 +5,10 @@ Fermently::Application.routes.draw do
 
   devise_for :users
   resources :users do
-    resources :followings
+    resources :followings do
+      get :delete, :on => :member                         #work-around for deleting a following
+      delete :delete, :on => :member, :action => :destroy #JS solution
+    end
   end
 
   get "/home/about.html", to: "home#about", as: :about
@@ -13,6 +16,7 @@ Fermently::Application.routes.draw do
   #show user following, followers, and profile page
   get '/:username/following', to: "home#show_following", as: "show_following"
   get '/:username/followers', to: "home#show_followers", as: "show_followers"
+  
   get "/:username", to: "home#profile"
 
   root "home#index"

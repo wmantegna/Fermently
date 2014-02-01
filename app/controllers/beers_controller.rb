@@ -43,6 +43,8 @@ class BeersController < ApplicationController
   end
 
   def destroy
+    @beer.users.destroy
+
     @beer.destroy
     redirect_to beers_path
   end

@@ -1,20 +1,31 @@
-<h2>Welcome to Fermently!</h2>
-
-<div style="background-color:teal; width: 250px; text-align: center">
-<% if user_signed_in? %>
-	Sweet! You're already logged in!
-<% else %>
-	Sign up/in to add some homebrewin' data of your own!
-<% end %>
-</div>
-
-<h3><%= link_to "Search for a beer", beers_path %>
+<table width=100%>
+	<tr>
+		<td>
+			<center>
+			<h2>Welcome to Fermently!</h2>
+			<div style="background-color:teal; width: 250px; text-align: center">
+				<% if current_user %>
+					Sweet! You're already logged in!
+				<% else %>
+					Sign up/in to add some homebrewin' data of your own!
+				<% end %>
+			</div>
+			<h3><%= link_to "Search for a beer", beers_path %>
+			</center>
+		</td>
+		<td>
+			<div style="background-color: #789AFF; width:100px; text-align: center">
+				<h3>Newest Users:</h3>
+				<hr />
+				<% @users.each do |u| %>
+					<b><%= link_to u.username, "/#{u.username}" %></b><br />
+				<% end %>
+				<br />
+				<%= link_to "All Users", users_path %>
+			</div>
+		</td>
+	</tr>
+</table>
 
 <h3>10 Most recent beers brewed!</h3>
 <%= render "beers/table" %>
-
-
-<% @users.each do |u| %>
-
-	<%= u.username %><br />
-<% end %>

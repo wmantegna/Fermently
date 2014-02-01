@@ -1,13 +1,16 @@
 <h2><%= @user.username %>'s Followings!</h2>
 
-<b>Followings:</b> <%= @user.followings.count %><br />
-ID -- username<br />
+<b><%= @user.username %> is following (<%= @user.followings.count %>):</b><br />
 <% @user.followings.each do |f| %>
-	<%= f.follower.id %> -- <%= f.follower.username %><br />
+	<%= link_to f.user.username, user_path(f.user) %>
+ 	<% if current_user == @user %>
+ 		 <%= link_to "Stop following", delete_user_following_path(@user, f) %>
+ 	<% end %>
+	<br />
 <% end %>
+<br />
 
-<b>followers:</b> <%= @user.followers.count %><br />
-
+<b><%= @user.username %>'s followers (<%= @user.followers.count %>):</b><br />
 <% @user.followers.each do |f| %>
-	<%= f.follower.id %> -- <%= link_to f.follower.username, "/#{f.follower.username}" %><br />
+	<%= link_to f.follower.username, user_path(f.follower) %><br />
 <% end %>
