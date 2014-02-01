@@ -12,23 +12,22 @@
 
 <br />
 <% #Follow %>
-<% if current_user != @user %>
-	<% if @user.followers.exists?(follower: current_user) %>
-
-		You are following <%= @user.username %><br />
-
-		<% @following = current_user.followings.where(user: @user).first %>
-		<%= link_to "Stop following #{@user.username}", delete_user_following_path(@user, @following) %><br />
-
-	<% else %>
-
-		<%= link_to "Follow", new_user_following_path(@user, current_user) %>
-
-	<% end %>
-<% end %>
-
-<% #user is Following you %>
 <% if user_signed_in? %>
+
+	<% if current_user != @user %>
+		<% if @user.followers.where(blocked: false).exists?(follower: current_user) %>
+
+			You are following <%= @user.username %><br />
+
+			<% @following = current_user.followings.where(user: @user).first %>
+			<%= link_to "Stop following #{@user.username}", delete_user_following_path(@user, @following) %><br />
+
+		<% else %>
+			<%= link_to "Follow", new_user_following_path(@user, current_user) %>
+		<% end %>
+	<% end %>
+
+	<% #user is Following you %>
 	<% if current_user.followers.exists?(follower: @user) %>
 		
 		<%= @user.username %> is following You<br />
