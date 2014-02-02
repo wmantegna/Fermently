@@ -4,7 +4,7 @@ class BeersController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @beers = Beer.search_for(params[:query])
+    @beers = Beer.search_for(params[:query]).limit(100)
     #@beers = current_user.beers.order(dateBrewed: :desc)
   end
 

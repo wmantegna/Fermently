@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   has_many :followings, class_name: 'Followings', foreign_key: 'follower_id', conditions: "blocked = false"
   has_many :blockings,  class_name: 'Followings',  foreign_key: 'user_id', conditions: "blocked = true"
 
+  def self.search_for(query)
+    @users = User.where("LOWER(username) LIKE LOWER(:query) OR LOWER(email) LIKE LOWER(:query)", query: "%#{query}%")
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable

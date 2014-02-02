@@ -1,6 +1,21 @@
-<h2>All Users</h2>
-
-<% @users.each do |u| %>
-	<b><%= link_to u.username, user_path(u) %></b>: <%= u.email %><br />
-	<br />
+<h2>Users</h2>
+<%= form_tag "/users", method: :get do %>
+	<%= text_field_tag :query, "", size: "30", placeholder: "username or email" %>
+	<%= submit_tag "Search" %>
 <% end %>
+
+<h2>Users List</h2>
+<table border=1 celldpadding=5>
+	<tr>
+		<th>Username</th>
+		<th>Member Since</th>
+		<th>Beers<br /> brewed</th>
+	</tr>
+<% @users.each do |u| %>
+	<tr>
+		<th><%= link_to u.username, user_path(u) %></th>
+		<td><center><%= u.created_at.to_date %></center></td>
+		<th><%= u.beers.count %></th>
+	</tr>
+<% end %>
+</table>
