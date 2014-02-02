@@ -9,7 +9,6 @@
 
 @b = BreweryDB::Client.new do |c|
 	c.api_key = "b31b22b5b383cdcf086127513013704d"
-	#c.api_key = "dcf86f8a8379c4d1d170f45064e2e352"
 end
 
 @styles = @b.styles.all
