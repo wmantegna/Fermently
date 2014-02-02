@@ -9,12 +9,12 @@
 	<tr>
 		<th>Username</th>
 		<th>Member Since</th>
-		<th>Beers<br /> brewed</th>
+		<th>Homebrews</th>
 	</tr>
 <% @users.each do |u| %>
 	<tr>
 		<th><%= link_to u.username, user_path(u) %></th>
-		<td><center><%= u.created_at.to_date %></center></td>
+		<td><center><%= u.created_at.to_date.strftime("%b %_m, %Y") %></center></td>
 		<th><%= u.beers.count %></th>
 	</tr>
 <% end %>

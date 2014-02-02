@@ -14,8 +14,6 @@
 		<th>abvMax</th>
 		<th>ibuMin</th>
 		<th>ibuMax</th>
-		<th>Created at</th>
-		<th>Updated at</th>
 		<th>Links</th>
 	</tr>
 <% @beerStyles.each do |bs| %>
@@ -26,8 +24,6 @@
 		<td><%= bs.abvMax %></td>
 		<td><%= bs.ibuMin %></td>
 		<td><%= bs.ibuMax %></td>
-		<td><%= bs.created_at %></td>
-		<td><%= bs.updated_at %></td>
 		<td>
 			<%= link_to "Show", beer_style_path(bs) %> | 
 			<%= link_to "Edit", edit_beer_style_path(bs) %>

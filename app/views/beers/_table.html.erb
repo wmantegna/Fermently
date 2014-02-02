@@ -21,8 +21,12 @@
 		<td><%= b.og %></td>
 		<td><%= b.fg %></td>
 		<td><%= b.abv %></td>
-		<td><%= b.dateBrewed %></td>
-		<td><%= b.dateBottled %></td>
+		<td><%= b.dateBrewed.to_date.strftime("%b %_m, %Y") %></td>
+		<td>
+			<% unless b.dateBottled.nil? %>
+				<%= b.dateBottled.to_date.strftime("%b %_m, %Y") %>
+			<% end %>
+		</td>
 		<td><%= b.priming %></td>
 		<td><%= b.rating %></td>
 		<td>

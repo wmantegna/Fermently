@@ -4,16 +4,16 @@
 			<center>
 
 			<h2>Welcome to Fermently!</h2>
-			<div style="background-color:teal; width: 250px; text-align: center">
+			<div style="background-color:lightgray; width: 250px; text-align: center">
 			
-				<% if current_user %>
-					Sweet! You're already logged in!
-				<% else %>
-					Sign up/in to add some homebrewin' data of your own!
-				<% end %>
+
+					Did you brew a beer today?<br />
+					<%= link_to "Add a Homebrew", new_beer_path %>
+
+
 			</div>
 			
-			<h3><%= link_to "Search for a beer", beers_path %>
+			<h4><%= link_to "Search for a Beer", beers_path %></h4>
 
 			</center>
 		</td>
@@ -34,5 +34,5 @@
 	</tr>
 </table>
 
-<h3>10 Most recent beers brewed!</h3>
+<h3>Recent Homebrews!</h3>
 <%= render "beers/table" %>

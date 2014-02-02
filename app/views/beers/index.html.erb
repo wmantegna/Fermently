@@ -3,10 +3,9 @@
 	<%= text_field_tag :query, "", size: "30", placeholder: "Search Beers by name" %>
 	<%= submit_tag "Search" %>
 <% end %>
+
 <h2>Beers List</h2>
-
 <%= render "/beers/table" %>
-
 
 <p><%= link_to "Add a beer", new_beer_path %></p>
 <p><%= link_to "View Beer Styles", beer_styles_path %></p>

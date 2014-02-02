@@ -34,8 +34,10 @@ class BeersController < ApplicationController
   def update
   	@beer.update_attributes(beer_params)
 
-    params[:newBrewers].each do |u|
+    unless params[:newBrewers].nil?
+      params[:newBrewers].each do |u|
       @beer.users << User.find(u)
+      end
     end
 
     redirect_to beer_path
