@@ -3,7 +3,9 @@ class BeerStylesController < ApplicationController
   before_action :set_beer_style, only: [:show, :edit, :update, :destroy]
 
   def index
-  	@beerStyles = BeerStyle.all.order("lower(name) asc")
+    @beerStyles = BeerStyle.search_for(params[:query])
+    #@beerStyles = BeerStyle.find_with_index(params[:query])
+    #@beerStyles = BeerStyle.all.order("lower(name) asc")
   end
 
   def show

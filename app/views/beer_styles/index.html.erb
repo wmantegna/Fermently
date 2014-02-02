@@ -1,5 +1,11 @@
-<h2>Beer Styles</h2>
+<h2>Beer Styles <span style="font-size:10pt">(powered by <%= link_to "BreweryDB", "http://www.brewerydb.com/" %>)</span></h2>
 
+<%= form_tag "/beer_styles/", method: :get do %>
+	<%= text_field_tag :query, "", size: "30", placeholder: "Search Beer Styles by name" %>
+	<%= submit_tag "Search" %>
+<% end %>
+
+<h2>Beer Styles List</h2>
 <table border="1" cellpadding="5">
 	<tr>
 		<th>Name</th>

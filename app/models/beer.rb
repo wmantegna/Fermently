@@ -1,11 +1,12 @@
 class Beer < ActiveRecord::Base
+	acts_as_indexed :fields => [:name]
+
 	validates :name, :beer_style_id, :dateBrewed, presence: true
 	
 	has_and_belongs_to_many :users
 	belongs_to :beer_style
 
 	def self.search_for(query)
-    @beers = Beer.where("LOWER(name) LIKE LOWER(:query)", query: "%#{query}%")
+		 @beers = Beer.where("LOWER(name) LIKE LOWER(:query)", query: "%#{query}%").order(dateBrewed: :desc)
   end
-
 end

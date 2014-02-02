@@ -1,11 +1,17 @@
 class User < ActiveRecord::Base
+  acts_as_indexed :fields => [:username, :email]
+
   has_and_belongs_to_many :beers
   has_many :followers,  class_name: 'Followings', foreign_key: 'user_id',     conditions: "blocked = false"
   has_many :followings, class_name: 'Followings', foreign_key: 'follower_id', conditions: "blocked = false"
   has_many :blockings,  class_name: 'Followings',  foreign_key: 'user_id', conditions: "blocked = true"
 
   def self.search_for(query)
-    @users = User.where("LOWER(username) LIKE LOWER(:query) OR LOWER(email) LIKE LOWER(:query)", query: "%#{query}%")
+    if query.nil? || query.empty?
+      @users = User.all
+    else
+      @users = User.find_with_index(query)
+    end
   end
 
   # Include default devise modules. Others available are:

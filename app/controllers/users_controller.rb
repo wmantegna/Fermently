@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	before_action :set_user, only: [:show, :destroy]
 
 	def index
-		@users = User.search_for(params[:query]).limit(50)
+		@users = User.search_for(params[:query])
 	end
 
 	def show
