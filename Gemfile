@@ -7,6 +7,7 @@ gem 'rails', '4.0.2'
 #gem 'sqlite3'
 gem 'rails_12factor'
 gem 'pg'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -16,8 +17,15 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
+#Login stuff
 gem 'devise', '~> 3.2.2'
 gem 'cancan', '~> 1.6.10'
+
+
+#BreweryDB connection
+gem 'json'
+gem 'rest-client'
+gem 'brewery_db'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

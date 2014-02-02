@@ -1,0 +1,41 @@
+<h2>BreweryDB stuff</h2>
+
+<table border=1 cellpadding=5>
+	<tr>
+		<th>id</th>
+		<th>category_id</th>
+		<th>category</th>
+		<th>name</th>
+		<th>description</th>
+		<th>ibu_min</th>
+		<th>ibu_max</th>
+		<th>abv_min</th>
+		<th>abv_max</th>
+		<th>srm_min</th>
+		<th>srm_max</th>
+		<th>og_min</th>
+		<th>fg_min</th>
+		<th>fg_max</th>
+		<th>create_date</th>
+	</tr>
+
+<% @styles.each do |s| %>
+	<tr>
+		<td><%= s.id %></td>
+		<td><%= s.category_id %></td>
+		<td><%= s.category %></td>
+		<td><%= s.name %></td>
+		<td><%= s.description %></td>
+		<td><%= s.ibu_min %></td>
+		<td><%= s.ibu_max %></td>
+		<td><%= s.abv_min %></td>
+		<td><%= s.abv_max %></td>
+		<td><%= s.srm_min %></td>
+		<td><%= s.srm_max %></td>
+		<td><%= s.og_min %></td>
+		<td><%= s.fg_min %></td>
+		<td><%= s.fg_max %></td>
+		<td><%= s.create_date %></td>
+	</tr>
+<% end %>
+</table>

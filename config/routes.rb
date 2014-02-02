@@ -14,6 +14,7 @@ Fermently::Application.routes.draw do
   end
 
   get "/home/about.html", to: "home#about", as: :about
+  get "/home/brewerydb.html", to: "home#brewerydb", as: "brewerydb"
 
   #show user following, followers, and profile page
   get '/:username/following', to: "home#show_following", as: "show_following"
