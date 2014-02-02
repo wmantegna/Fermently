@@ -1,6 +1,6 @@
 <h2>Unfollow</h2>
 <%= form_for(@following, :url => { :action => :destroy }, :html => { :method => :delete }) do |f| %>
-  <p>Are you sure you want to stop following <%= @following.user.username %>?</p>
+  <p>Are you sure you want to stop following <b><%= @following.user.username %></b>?</p>
   
   <div class="footer">
     <%= link_to 'No', :back %>

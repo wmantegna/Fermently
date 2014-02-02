@@ -11,27 +11,43 @@
 <% end %>
 
 <br />
-<% #Follow %>
+
 <% if user_signed_in? %>
-
 	<% if current_user != @user %>
-		<% if @user.followers.where(blocked: false).exists?(follower: current_user) %>
-
-			You are following <%= @user.username %><br />
-
-			<% @following = current_user.followings.where(user: @user).first %>
-			<%= link_to "Stop following #{@user.username}", delete_user_following_path(@user, @following) %><br />
+		
+		<% #User Blocked current_user %>
+		<% if @user.blockings.exists?(follower: current_user) %>
+			<b><%= @user.username %></b> has blocked you!
 
 		<% else %>
-			<%= link_to "Follow", new_user_following_path(@user, current_user) %>
-		<% end %>
-	<% end %>
+			<% #current_user is following user %>	
+			<% if @user.followers.exists?(follower: current_user) %>
 
-	<% #user is Following you %>
-	<% if current_user.followers.exists?(follower: @user) %>
-		
-		<%= @user.username %> is following You<br />
-	
+				You are following <%= @user.username %><br />
+
+				<% @following = current_user.followings.where(user: @user).first %>
+				<%= link_to "Stop following #{@user.username}", delete_user_following_path(@user, @following) %><br />
+
+			<% else %>
+				<%= link_to "Follow", new_user_following_path(@user) %><br />
+			<% end %>
+		<% end %>
+
+		<% #unblock user %>
+		<% if current_user.blockings.exists?(follower: @user) %>
+
+			<% @blocking = current_user.blockings.where(follower: @user).first %>
+			
+			<br />You have blocked <b><%= @user.username %></b>. (<%= link_to "unblock", unblock_user_following_path(@user, @blocking), data: { confirm: "Are you sure \nyou want to unblock \n#{@user.username}?" } %>)<br /><br />
+
+		<% #user is Following you %>
+		<% elsif current_user.followers.exists?(follower: @user) %>
+
+			<% @following = current_user.followers.where(follower: @user).first %>
+
+			<br /><b><%= @user.username %></b> is following you (<%= link_to "block", block_user_following_path(@user, @following), data: { confirm: "Are you sure \nyou want to block \n#{@user.username}?" } %>)<br /><br />
+
+		<% end %>
 	<% end %>
 <% end %>
 

@@ -1,0 +1,21 @@
+<table border=1 cellpadding=5>
+	<tr>
+		<th>OG</th>
+		<th>FG</th>
+		<th>abv</th>
+		<th>Age when bottled (in days)</th>
+		<th>Rating</th>
+		<th>No. Brewers</th>
+	</tr>
+	<tr>
+		<td><%= @beerStyle.beers.where.not(og: nil).average("og") %></td>
+		<td><%= @beerStyle.beers.where.not(fg: nil).average("fg") %></td>
+		<td><%= @beerStyle.beers.where.not(abv: nil).average("abv") %></td>
+		<td>Age when bottled</td>
+		<td><%= @beerStyle.beers.where.not(rating: nil).average("rating") %></td>
+		<td>
+			<% @arr = @beerStyle.beers.collect{|b|b.users.count} %>
+			<%= @arr.inject{|sum, el| sum + el}.to_f / @arr.size %>
+		</td>
+	</tr>
+</table

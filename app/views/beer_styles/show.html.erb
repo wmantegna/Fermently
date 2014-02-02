@@ -61,6 +61,10 @@
 <p><%= link_to "Edit This Style", edit_beer_style_path %><br />
 <%= link_to "Beer Styles Home", beer_styles_path %></p>
 <br />
+<h2>Fermently Averages</h2>
+<%= render "beers/averages_for_a_beer_style" %>
+<br />
+
 <h2>Homebrews made with this style</h2>
 <%= render "beers/table" %>
 

@@ -8,6 +8,8 @@ Fermently::Application.routes.draw do
     resources :followings do
       get :delete, :on => :member                         #work-around for deleting a following
       delete :delete, :on => :member, :action => :destroy #JS solution
+      get :block, :on => :member, as: "block"
+      get :unblock, :on => :member, as: "unblock"
     end
   end
 
