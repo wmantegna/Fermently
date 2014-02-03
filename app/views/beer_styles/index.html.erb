@@ -10,26 +10,15 @@
 	<tr>
 		<th>Name</th>
 		<th>Category</th>
-		<th>abvMin</th>
-		<th>abvMax</th>
-		<th>ibuMin</th>
-		<th>ibuMax</th>
 		<th>Links</th>
 	</tr>
 <% @beerStyles.each do |bs| %>
 	<tr>
 		<td><%= bs.name %></td>
 		<td><%= bs.category %></td>
-		<td><%= bs.abvMin %></td>
-		<td><%= bs.abvMax %></td>
-		<td><%= bs.ibuMin %></td>
-		<td><%= bs.ibuMax %></td>
 		<td>
-			<%= link_to "Show", beer_style_path(bs) %> | 
-			<%= link_to "Edit", edit_beer_style_path(bs) %>
+			<%= link_to "Show", beer_style_path(bs) %>
 		</td>
 	</tr>
 <% end %>
 </table>
-<p><%= link_to "Add a Beer Style", new_beer_style_path %></p>
-<p><%= link_to "View List of Beers", beers_path %></p>

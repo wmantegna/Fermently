@@ -10,12 +10,16 @@
 		<th>Username</th>
 		<th>Member Since</th>
 		<th>Homebrews</th>
+		<th>Following</th>
+		<th>Followers</th>
 	</tr>
 <% @users.each do |u| %>
 	<tr>
 		<th><%= link_to u.username, user_path(u) %></th>
 		<td><center><%= u.created_at.to_date.strftime("%b %_m, %Y") %></center></td>
 		<th><%= u.beers.count %></th>
+		<th><%= u.followings.count %></th>
+		<th><%= u.followers.count %></th>
 	</tr>
 <% end %>
 </table>
