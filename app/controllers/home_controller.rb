@@ -6,6 +6,9 @@ class HomeController < ApplicationController
 
 	def about
 	end
+
+	def aboutDev
+	end
 	
 	def profile
 		@user = User.find_by(username: params[:username])

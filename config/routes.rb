@@ -3,7 +3,7 @@ Fermently::Application.routes.draw do
   resources :beers
   resources :beer_styles
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users
   resources :users do
     resources :followings do
       get :delete, :on => :member                         #work-around for deleting a following
@@ -13,10 +13,9 @@ Fermently::Application.routes.draw do
     end
   end
 
+  #Nav
   get "/home/about.html", to: "home#about", as: :about
-
-  #When comparing from BreweryDB
-  get "/home/brewerydb.html", to: "home#brewerydb", as: "brewerydb"
+  get "/home/aboutDev.html", to: "home#aboutDev", as: :dev
 
   #show user following, followers, and profile page
   get '/:username/following', to: "home#show_following", as: "show_following"
@@ -25,6 +24,13 @@ Fermently::Application.routes.draw do
   get "/:username", to: "home#profile"
 
   root "home#index"
+
+    #-----------------------------------------------------------------
+    #When comparing from BreweryDB
+    #get "/home/brewerydb.html", to: "home#brewerydb", as: "brewerydb"
+    #-----------------------------------------------------------------
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
