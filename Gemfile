@@ -31,6 +31,17 @@ gem 'brewery_db'
 #Better Search
 gem 'acts_as_indexed'
 
+#Outputting Data to other sources
+#gem 'omniauth-facebook', '~> 1.6.0'
+#gem 'omniauth-twitter', '~> 1.0.1'
+
+#env var's
+gem 'dotenv-rails', :groups => [:development, :test]
+
+#front-end
+gem 'bootstrap-sass', '~> 3.0.3.0'
+
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

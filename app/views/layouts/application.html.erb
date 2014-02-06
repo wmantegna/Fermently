@@ -2,51 +2,49 @@
 <html>
 <head>
   <title>Fermently</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <header>
-	<table width=100% cellspacing=0>
-		<tr>
-			<td>
-				<h1>Fermently</h1>
-				<%= link_to "Home", root_path %> | 
+	<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Fermently", root_path, class: "navbar-brand" %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    	<ul class="nav navbar-nav">
+    		<li class="active"><%= link_to "Home", root_path %></li>
+				<li class="active"><%= link_to "All Beers", beers_path %></li>
+				<li class="active"><%= link_to "Beer Styles", beer_styles_path %></li>
+				<li class="active"><%= link_to "Users", users_path %></li>
+				<li class="active"><%= link_to "About us", about_path %></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
 				<% if user_signed_in? %>
-					<%= link_to "My Beers", "/#{current_user.username}" %> | 
+					<li class="active"><%= link_to "My Beers", "/#{current_user.username}" %></li>
+					<li class="active"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+				<% else %>
+					<li class="active"><%= link_to "Login", new_user_session_path %></li>
+					<li class="active"><%= link_to "Sign up", new_user_registration_path %></li>
 				<% end %>
-				<%= link_to "Beers", beers_path %> | 
-				<%= link_to "Beer Styles", beer_styles_path %> | 
-				<%= link_to "Users", users_path %> | 
-				<%= link_to "About us", about_path %>
-			</td>
-			<td>
-				<div align="right">
-					<br />
-					<br />
-					
-					<% if user_signed_in? %>	
-							<%= current_user.username %><br />
-						<%= link_to "My Profile", "/#{current_user.username}" %><br />
-						<%= link_to "Log out", destroy_user_session_path, method: :delete %>
-					<% else %>
-						<%= link_to "Login", new_user_session_path %><br />	
-						<%= link_to "Sign up", new_user_registration_path %>
-					<% end %>
-
-				</div>
-			</td>
-		</tr>
-	</table>
-	<hr />
+			</ul>
+		</div>
+</nav>
 </header>
+<div style="padding: 0 20px 20px 20px">
+	<p style="color:red;"><%= flash[:error] %></p>
+	<p style="color:green;"><%= notice %></p>
+	<p class="color:red;"><%= alert %></p>
 
-<p style="color:red;"><%= flash[:error] %></p>
-<p style="color:green;"><%= notice %></p>
-<p class="color:red;"><%= alert %></p>
-
-<%= yield %>
-
+	<%= yield %>
+</div>
 </body>
 </html>

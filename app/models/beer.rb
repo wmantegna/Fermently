@@ -1,5 +1,5 @@
 class Beer < ActiveRecord::Base
-	acts_as_indexed :fields => [:name]
+	#acts_as_indexed :fields => [:name]
 
 	validates :name, :beer_style_id, :dateBrewed, presence: true
 	

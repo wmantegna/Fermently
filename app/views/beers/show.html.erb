@@ -22,6 +22,8 @@
 <b>Created At:</b> <%= @beer.created_at %><br />
 <b>Updated At:</b> <%= @beer.updated_at %><br />
 
+<%= render "beers/share" %>
+
 <br />
 <p><%= link_to "Edit Beer", edit_beer_path %></p>
 <p><%= link_to "List of All Beer", beers_path %></p>

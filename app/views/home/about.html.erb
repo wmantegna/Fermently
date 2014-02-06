@@ -1,7 +1,11 @@
+<h2>About Fermently</h2>
+
+<div style="width:50%;">
+<hr width=75% />
 <p align="center">I have a dream,<br /> that one day, brewers everywhere<br /> will be able to easily share data about their brews<br /> across the World Wide Web!</p>
 <hr width=75% />
 <p>These were the words written down by our Fearless Fermentin' Leader on that fateful day in December 2013. Simply, we want to help you homebrew! And maybe brag to your friends about your successes...but hey! All is fair in love and war? Right?</p>
-
+</div>
 <h3>User Stories</h3>
 	<ol>
 		<li class="complete">As a user, I want to be able to see a list of beer styles.</li>
@@ -35,16 +39,19 @@
 				<li>New Happenings on the site (did my friends follow someone?)</li>
 				<li>Beer Style of the week</li>
 			</ul>
-		<li>As a user, I want to be able to share my beer over facebook.(facebook-gem)</li>
-		<li>As a user, I want to be able to view a category of beer styles.</li>
+		<li>As a user, I want to be able to share my beer over facebook.</li>
+		<li>As a user, I want to be able to share my beer over twitter.</li>
+		<li>As an admin, I want to be able to confirm registration and password changes by sending email.</li> 
 		<li>As a user, I want to see a website that looks like it's from the year 2014.</li>
 		<li></li>
 		<li>As a user, I want to be able eat bacon and bagels with cream cheese.</li>
 		<li>As a user, I only want myself and fellow brewers to be able to edit/destroy a beer. (CanCan)</li>
-		<li>As a user, I want to be able to add a profile picture! (Paperclip)</li>
+		<li>As a user, I want to be able to view a category of beer styles.</li>
+		<li>As a user, I want to be able to add a profile picture! (omniauth-facebook)(Paperclip)</li>
 		<li>As a user, I want to be able to add a picture to my beer. (Paperclip)</li>
 		<li>As a user, I want to be able to list my homebrews on Untappd.</li>
 		<li>As a user, I want to be able to sort my beers.</li>
+		<li>As a user, I want to receive reminders about my beers</li>
 	</ol>
 
 	<h3>Ruby Gems in Use</h3>
@@ -53,4 +60,17 @@
 		<li>acts_as_indexed</li>
 		<li>brewery-db (with json & rest-client to get & parse data)</li>
 		<li>rails_12factor & pg (interface with PostgreSQL)</li>
+		<li>dotenv-rails</li>
+		<li>bootstrap-sass</li>
 	</ul>
+
+	<a href="http://twitter.com/home?status=Check%20out%20fermently" target="_blank">Share on Twitter</a>
+	<div class="fb-share-button" data-href="http://fermently.herokuapp.com" data-type="button_count"></div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

@@ -25,15 +25,17 @@ class HomeController < ApplicationController
 		@user = User.find_by(username: params[:username])
 	end
 
+
 =begin
 	def brewerydb
 		
 		@b = BreweryDB::Client.new do |c|
-			c.api_key = "b31b22b5b383cdcf086127513013704d"
+			c.api_key = ENV['BREWERY_DB_KEY']
 		end
 
 		@styles = @b.styles.all
   end
 =end
+
 
 end

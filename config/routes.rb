@@ -3,7 +3,7 @@ Fermently::Application.routes.draw do
   resources :beers
   resources :beer_styles
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users do
     resources :followings do
       get :delete, :on => :member                         #work-around for deleting a following
@@ -14,6 +14,8 @@ Fermently::Application.routes.draw do
   end
 
   get "/home/about.html", to: "home#about", as: :about
+
+  #When comparing from BreweryDB
   get "/home/brewerydb.html", to: "home#brewerydb", as: "brewerydb"
 
   #show user following, followers, and profile page

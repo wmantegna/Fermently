@@ -1,10 +1,17 @@
 class User < ActiveRecord::Base
   acts_as_indexed :fields => [:username, :email]
 
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  validates :username, :uniqueness => { :case_sensitive => false }
+  
   has_and_belongs_to_many :beers
   has_many :followers,  class_name: 'Followings', foreign_key: 'user_id',     conditions: "blocked = false"
   has_many :followings, class_name: 'Followings', foreign_key: 'follower_id', conditions: "blocked = false"
   has_many :blockings,  class_name: 'Followings',  foreign_key: 'user_id', conditions: "blocked = true"
+
+
 
   def self.search_for(query)
     if query.nil? || query.empty?
@@ -14,14 +21,9 @@ class User < ActiveRecord::Base
     end
   end
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
-  validates :username, :uniqueness => { :case_sensitive => false }#,
-  #:format => { ... } # etc.
-  # I THINK THIS IS WHERE THE ERROR IS
-
+#Username or email login
+#-----------------------
   def login=(login)
     @login = login
   end
@@ -38,5 +40,5 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
-
+#-----------------------
 end
