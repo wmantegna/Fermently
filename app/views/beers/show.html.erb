@@ -14,13 +14,13 @@
 <b>OG:</b> <%= @beer.og %><br />
 <b>FG:</b> <%= @beer.fg %><br />
 <b>ABV:</b> <%= @beer.abv %><br />
-<b>Date Brewed:</b> <%= @beer.dateBrewed %><br />
-<b>Date Bottled:</b> <%= @beer.dateBottled %><br />
+<b>Date Brewed:</b> <%= @beer.dateBrewed.to_date.strftime("%b %_m, %Y") %><br />
+<b>Date Bottled:</b> <%= @beer.dateBottled.to_date.strftime("%b %_m, %Y") %><br />
 <b>Priming:</b> <%= @beer.priming %><br />
 <b>Rating:</b> <%= @beer.rating %><br />
 <b>Brewer Comment:</b> <%= @beer.brewerComment %><br />
-<b>Created At:</b> <%= @beer.created_at %><br />
-<b>Updated At:</b> <%= @beer.updated_at %><br />
+<b>Created At:</b> <%= @beer.created_at.to_date.strftime("%b %_m, %Y") %><br />
+<b>Updated At:</b> <%= @beer.updated_at.to_date.strftime("%b %_m, %Y") %><br />
 
 <%= render "beers/share" %>
 
