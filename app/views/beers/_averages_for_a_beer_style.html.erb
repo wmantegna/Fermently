@@ -1,5 +1,5 @@
-<table border=1 cellpadding=5>
-	<tr>
+<table class="table-bordered table-hover" cellpadding="5px">
+	<tr style="background-color:lightgrey;">
 		<th>OG</th>
 		<th>FG</th>
 		<th>abv</th>
@@ -15,7 +15,11 @@
 		<td><%= @beerStyle.beers.where.not(rating: nil).average("rating") %></td>
 		<td>
 			<% @arr = @beerStyle.beers.collect{|b|b.users.count} %>
-			<%= @arr.inject{|sum, el| sum + el}.to_f / @arr.size %>
+			<% if @arr.size > 0 %>
+				<%= @arr.inject{|sum, el| sum + el}.to_f / @arr.size %>
+			<% else %>
+				0
+			<% end %>
 		</td>
 	</tr>
 </table>
