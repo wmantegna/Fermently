@@ -1,41 +1,38 @@
-<table width=100%>
-	<tr>
-		<td>
-			<center>
-				<div class="jumbotron">
-				  <h1>Welcome to Fermently!</h1>
-				  <p>Store and sharing your brewing data online!</p>
-				  <p><%= link_to "Learn More", about_path, class: "btn btn-primary btn-lg" %></p>
-				</div>
-			<div style="background-color:lightgray; width: 250px; text-align: center">
-				<span style="font-size: 16pt; font-weight: bold">
-					Did you brew a beer today?<br />
-					<%= link_to "Add a Homebrew", new_beer_path %>
-				</span>
-			</div>
-			<br />
-			<span style="font-size: 16pt">
-			<%= link_to "Search for a Beer", beers_path %>
-			</span>
+<div align="center">
+	<div class="jumbotron">
+		<h1>Welcome to Fermently!</h1>
+		<p>Store and sharing your brewing data online!</p>
+		<p><%= link_to "Learn More", about_path, class: "btn btn-primary btn-lg" %></p>
+	</div>
+</div>
 
-			</center>
-		</td>
-		<td>
-			<div style="background-color: #789AFF; width:100px; text-align: center">
-			
-				<h3>Newest Users:</h3>
+<div class="row">
+  <div class="col-md-4">
+  	<div style="background-color:lightgray; width: 250px; text-align: center">
+			<span style="font-size: 16pt; font-weight: bold">
+				Did you brew a beer today?<br />
+				<%= link_to "Add a Homebrew", new_beer_path %>
 				<hr />
-				<% @users.each do |u| %>
-					<b><%= link_to u.username, "/#{u.username}" %></b><br />
-				<% end %>
-				<br />
-				
-				<%= link_to "All Users", users_path %>
-
-			</div>
-		</td>
-	</tr>
-</table>
+				<%= link_to "Search for a Beer", beers_path %>
+				<hr />
+			</span>
+		</div>
+  </div>
+  <div class="col-md-4">
+  	Beer Styles Info
+  </div>
+  <div class="col-md-4">
+  	<div style="background-color: #789AFF; width:100px; text-align: center">
+			<h3>Newest Users:</h3>
+			<hr />
+			<% @users.each do |u| %>
+				<b><%= link_to u.username, "/#{u.username}" %></b><br />
+			<% end %>
+			<br />
+			<%= link_to "All Users", users_path %>
+		</div>
+  </div>
+ </div>
 
 <h3>Check out the latest Homebrews!</h3>
 <%= render "beers/table" %>
