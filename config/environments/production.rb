@@ -6,7 +6,7 @@ Fermently::Application.configure do
   config.action_mailer.smtp_settings = {
     :address => "127.0.0.1",
     :port    => 25,
-    :domain  => ENV['PROD_SITE_URL']
+    :domain  => 'fermently.heroku.com'
   }
 
   # Settings specified here will take precedence over those in config/application.rb.
