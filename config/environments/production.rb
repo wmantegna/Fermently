@@ -1,7 +1,7 @@
 Fermently::Application.configure do
 
 
-  config.action_mailer.default_url_options = {:host => ENV['PROD_SITE_URL']}
+  config.action_mailer.default_url_options = {:host => 'fermently.heroku.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address => "127.0.0.1",
