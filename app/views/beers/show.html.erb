@@ -14,8 +14,16 @@
 <b>OG:</b> <%= @beer.og %><br />
 <b>FG:</b> <%= @beer.fg %><br />
 <b>ABV:</b> <%= @beer.abv %><br />
-<b>Date Brewed:</b> <%= @beer.dateBrewed.to_date.strftime("%b %_m, %Y") %><br />
-<b>Date Bottled:</b> <%= @beer.dateBottled.to_date.strftime("%b %_m, %Y") %><br />
+<b>Date Brewed:</b> 
+	<% unless @beer.dateBrewed == nil %>
+		<%= @beer.dateBrewed.to_date.strftime("%b %_m, %Y") %>
+	<% end %>
+	<br />
+<b>Date Bottled:</b> 
+	<% unless @beer.dateBottled == nil %>
+		<%= @beer.dateBottled.to_date.strftime("%b %_m, %Y") %>
+	<% end %>
+	<br />
 <b>Priming:</b> <%= @beer.priming %><br />
 <b>Rating:</b> <%= @beer.rating %><br />
 <b>Brewer Comment:</b> <%= @beer.brewerComment %><br />
