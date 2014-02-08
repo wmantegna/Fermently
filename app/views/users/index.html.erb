@@ -1,6 +1,5 @@
-<h2>Users List</h2>
+<h2>Users</h2>
 
-<br />
 <br />
 <%= form_tag "/users", method: :get do %>
 	<%= text_field_tag :query, "", size: "30", placeholder: "username or email" %>
@@ -18,7 +17,7 @@
 	</tr>
 <% @users.each do |u| %>
 	<tr>
-		<th><%= link_to u.username, user_path(u) %></th>
+		<th><%= link_to u.username, "/#{u.username}" %></th>
 		<td><center><%= u.created_at.to_date.strftime("%b %_m, %Y") %></center></td>
 		<th><%= u.beers.count %></th>
 		<th><%= u.followings.count %></th>

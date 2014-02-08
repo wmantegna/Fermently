@@ -1,9 +1,3 @@
-<div style="width:50%;">
-<hr width=75% />
-<p align="center">I have a dream,<br /> that one day, brewers everywhere<br /> will be able to easily share data about their brews<br /> across the World Wide Web!</p>
-<hr width=75% />
-<p>These were the words written down by our Fearless Fermentin' Leader on that fateful day in December 2013. Simply, we want to help you homebrew! And maybe brag to your friends about your successes...but hey! All is fair in love and war? Right?</p>
-</div>
 <h3>User Stories</h3>
 	<ol>
 		<li class="complete">As a user, I want to be able to see a list of beer styles.</li>
@@ -16,20 +10,19 @@
 				<li class="complete">fermently.com/username</li>
 			</uL>
 		<li class="complete">As a user, I want to connect beers to my profile.</li>
-		<li class="complete">As a user, I want to see a list of beers that I've brewed, in descending chronological order.</li>
-		<li class="complete">As a user, I want to be able to search all beers added to the system.</li>
+		<li class="complete">As a user, I want to see a list of beers that I've brewed, in descending chronological order (<%= link_to "ActiveRecord Ordering", "http://guides.rubyonrails.org/active_record_querying.html#ordering" %>).</li>
+		<li class="complete">As a user, I want to be able to search all beers added to the system (<%= link_to "RailsCast", "http://railscasts.com/episodes/37-simple-search-form" %>).</li>
 		<li class="complete">As a user, I want to be able to see my friends profile pages.</li>
-		<li class="complete">As a user, I want to be able to be followed by my friends.</li>
-		<li class="complete">As a user, I want to to follow my friends.</li>
-		<li class="complete">As a user, I want to add a brewer that I'm following to a beer that I brewed.</li>
+		<li class="complete">As a user, I want to be able to to be followed by my friends, and to be able to follow them (<%= link_to "StackOverflow", "http://stackoverflow.com/questions/3397920/relationship-like-twitter-followers-followed-in-activerecord" %>).</li>
+		<li class="complete">As a user, I want to add a brewer that I'm following to a beer that I brewed (<%= link_to "M:N relationship RailsCast", "http://railscasts.com/episodes/47-two-many-to-many" %>).</li>
 		<li class="complete">As a user, I want to be able to block someone from following me.</li>
 		<li class="complete">As a user, I want to be able to unblock someone.</li>
-		<li class="complete">As a user, I want to be able to stop following someone.</li>
-		<li class="complete">As a user, I want to be able to see averages of metrics for specific beers listed on it's beer style page.</li>
-		<li class="complete">As a user, I want to see a list of beer styles from BreweryDB.(breweryDB)</li>
-		<li class="complete">As a user, I want to be able to search for users.</li>
-		<li class="complete">As a user, I want to be able to search for beer styles.</li>
-		<li class="complete">As a user, I want dates on the website to be more readable (ie 17 Jan 2014).</li>
+		<li class="complete">As a user, I want to be able to stop following someone (<%= link_to "concept article [I wound up using a more streamlined version of this]", "http://ryantownsend.co.uk/post/13058102942/unobtrusive-object-deletion-in-rails" %>).</li>
+		<li class="complete">As a user, I want to be able to see averages of metrics for specific beers listed on it's beer style page (<%= link_to "ActiveRecord.average()", "http://api.rubyonrails.org/classes/ActiveRecord/Calculations.html#method-i-average" %>, <%= link_to "avg from an Array", "http://stackoverflow.com/questions/1341271/how-do-i-create-an-average-from-a-ruby-array" %>).</li>
+		<li class="complete">As a user, I want to see a list of beer styles from BreweryDB.(<%= link_to "db:seed RailsCast", "http://railscasts.com/episodes/179-seed-data" %>, <%= link_to "breweryDB", "http://www.brewerydb.com/" %>)</li>
+		<li class="complete">As a user, I want to be able to search for users (<%= link_to "acts_as_indexed", "https://github.com/dougal/acts_as_indexed" %>).</li>
+		<li class="complete">As a user, I want to be able to search for beer styles (<%= link_to "acts_as_indexed", "https://github.com/dougal/acts_as_indexed" %>).</li>
+		<li class="complete">As a user, I want dates on the website to be more readable (<%= link_to "apiDock article", "http://apidock.com/ruby/DateTime/strftime" %>).</li>
 		<li>As a user, I want to have a 'dashboard' or landing page for when I log in. Something showing the following:</li>
 			<ul>
 				<li>Recently brewed beers from my friends</li>
@@ -37,19 +30,20 @@
 				<li>New Happenings on the site (did my friends follow someone?)</li>
 				<li>Beer Style of the week</li>
 			</ul>
-		<li><i>As a user, I want to be able to share my beer over facebook.</i></li>
-		<li><i>As a user, I want to be able to share my beer over twitter.</i></li>
-		<li>As an admin, I want to be able to confirm registration and password changes by sending email.</li> 
-		<li><i>As a user, I want to see a website that looks like it's from the year 2014.</i></li>
+		<li><i>As a user, I want to be able to share my beer over facebook (<%= link_to "developers.facebook.com", "https://developers.facebook.com/docs/plugins/share-button/" %>).</i></li>
+		<li><i>As a user, I want to be able to share my beer over twitter (<%= link_to "about.twitter.com", "https://about.twitter.com/resources/buttons#tweet" %>).</i></li>
+		<li>As an admin, I want to be able to confirm user identity through Twitter (<%= link_to "omniauth RailsCast", "http://asciicasts.com/episodes/241-simple-omniauth" %>, <%= link_to "omniauth-twitter", "https://github.com/arunagw/omniauth-twitter" %>), facebook (<%= link_to "omniauth-facebook", "https://github.com/plataformatec/devise/wiki/OmniAuth%3A-Overview" %>), or email (<%= link_to "StackOverflow", "http://stackoverflow.com/questions/8186584/how-do-i-set-up-email-confirmation-with-devise" %>).</li> 
+		<li><i>As a user, I want all tables to be sortable by column (<%= link_to "railsCast", "http://railscasts.com/episodes/228-sortable-table-columns" %>)</i></li>
+		<li><i>As a user, I want to see a website that looks like it's from the year 2014 (<%= link_to "getBootstrap", "http://getbootstrap.com/" %>).</i></li>
 		<li></li>
 		<li>As a user, I want to be able eat bacon and bagels with cream cheese.</li>
 		<li>As a user, I only want myself and fellow brewers to be able to edit/destroy a beer. (CanCan)</li>
 		<li>As a user, I want to be able to view a category of beer styles.</li>
 		<li>As a user, I want to be able to add a profile picture! (omniauth-facebook)(Paperclip)</li>
 		<li>As a user, I want to be able to add a picture to my beer. (Paperclip)</li>
-		<li>As a user, I want to be able to list my homebrews on Untappd.</li>
-		<li>As a user, I want to be able to sort my beers.</li>
-		<li>As a user, I want to receive reminders about my beers</li>
+		<li>As a user, I want to be able to list my homebrews on Untappd (<%= link_to "Untappd API", "https://untappd.com/api/docs" %>).</li>
+		<li>As a user, I want to receive reminders about my beers (<%= link_to "Action Mailer basics -- guides.rubyonrails.org", "http://guides.rubyonrails.org/action_mailer_basics.html" %>, <%= link_to "simple RailsCast", "http://railscasts.com/episodes/61-sending-email" %>).</li>
+		<li>As a developer, I would like to explore streamlined follow/follower system using the <%= link_to "acts_as_follower", "https://github.com/tcocca/acts_as_follower" %> gem.</li>
 	</ol>
 
 	<h3>Ruby Gems in Use</h3>

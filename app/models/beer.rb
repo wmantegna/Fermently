@@ -1,7 +1,8 @@
 class Beer < ActiveRecord::Base
 	#acts_as_indexed :fields => [:name]
 
-	validates :name, :beer_style_id, :dateBrewed, presence: true
+	validates :name, length: {minimum:3, maximum: 20}, presence: true
+	validates :beer_style_id, :dateBrewed, presence: true
 	
 	has_and_belongs_to_many :users
 	belongs_to :beer_style

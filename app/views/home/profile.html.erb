@@ -3,6 +3,7 @@
 <b>Homebrews:</b> <%= @beers.count %><br />
 <b>Followers:</b> <%= link_to @user.followers.count.to_s + " Homebrewers", show_followers_path %><br />
 <b>Following:</b> <%= link_to @user.followings.count.to_s + " Homebrewers", show_following_path %><br />
+<b>Joined:</b> <%= @user.created_at.strftime("%b %_m, %Y") %><br />
 
 <% if current_user == @user %>
 	<br />
