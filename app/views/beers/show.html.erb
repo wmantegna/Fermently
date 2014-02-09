@@ -33,5 +33,7 @@
 <%= render "beers/share" %>
 
 <br />
-<p><%= link_to "Edit Beer", edit_beer_path %></p>
-<p><%= link_to "List of All Beer", beers_path %></p>
+<% if user_signed_in? && @beer.users.exists?(current_user) %>
+	<%= link_to "Edit Beer", edit_beer_path, class: "btn btn-primary" %>
+<% end %>
+<%= link_to "Search All Beers", beers_path, class: "btn btn-info" %>

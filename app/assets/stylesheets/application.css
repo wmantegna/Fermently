@@ -22,3 +22,20 @@
   background-color: green;   /* or whatever color you want */
 } 
 
+.fermentlybody {
+	background-color: transparent;
+}
+
+.pallet {
+	margin-top: 1%;
+	margin-bottom: 1%;
+	background-color:lightgray;
+	text-align: center;
+	font-size: 16pt;
+	font-weight: bold;
+}
+
+.table tbody tr:hover td,
+.table tbody tr:hover th {
+  background-color: pink;
+}

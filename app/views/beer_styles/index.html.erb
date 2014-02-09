@@ -3,11 +3,11 @@
 <br />
 <%= form_tag "/beer_styles/", method: :get do %>
 	<%= text_field_tag :query, "", size: "30", placeholder: "Search Beer Styles by name" %>
-	<%= submit_tag "Search" %>
+	<%= submit_tag "Search", class: "btn btn-info"  %>
 <% end %>
 <br />
 
-<table class="table-bordered table-hover" cellpadding="5px">
+<table class="table-bordered table-hover table-responsive" cellpadding="5px">
 	<tr style="background-color:lightgrey;">
 		<th>Name</th>
 		<th>Category</th>

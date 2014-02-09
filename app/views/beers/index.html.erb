@@ -3,11 +3,16 @@
 <br />
 <%= form_tag "/beers", method: :get do %>
 	<%= text_field_tag :query, "", size: "30", placeholder: "Search Beers by name" %>
-	<%= submit_tag "Search" %>
+	<%= submit_tag "Search", class: "btn btn-info" %>
 <% end %>
 <br />
 
 <%= render "/beers/table" %>
 
-<p><%= link_to "Add a beer", new_beer_path %></p>
-<p><%= link_to "View Beer Styles", beer_styles_path %></p>
+<br />
+<br />
+
+<p>
+	<%= link_to "Add a beer", new_beer_path, class: "btn btn-success" %>
+	<%= link_to "View Beer Styles", beer_styles_path, class: "btn btn-primary" %>
+</p>

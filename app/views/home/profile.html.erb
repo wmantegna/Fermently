@@ -7,7 +7,7 @@
 
 <% if current_user == @user %>
 	<br />
-	<%= link_to "Edit Profile", edit_user_registration_path %>
+	<%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
 	<br />
 <% end %>
 
@@ -24,13 +24,11 @@
 			<% #current_user is following user %>	
 			<% if @user.followers.exists?(follower: current_user) %>
 
-				You are following <%= @user.username %><br />
-
 				<% @following = current_user.followings.where(user: @user).first %>
-				<%= link_to "Stop following #{@user.username}", delete_user_following_path(@user, @following) %><br />
+				<%= link_to "Stop following #{@user.username}", delete_user_following_path(@user, @following), class: "btn btn-primary" %><br />
 
 			<% else %>
-				<%= link_to "Follow", new_user_following_path(@user) %><br />
+				<%= link_to "Follow", new_user_following_path(@user), class: "btn btn-primary" %><br />
 			<% end %>
 		<% end %>
 
@@ -39,18 +37,22 @@
 
 			<% @blocking = current_user.blockings.where(follower: @user).first %>
 			
-			<br />You have blocked <b><%= @user.username %></b>. (<%= link_to "unblock", unblock_user_following_path(@user, @blocking), data: { confirm: "Are you sure \nyou want to unblock \n#{@user.username}?" } %>)<br /><br />
+			<br />You have blocked <b><%= @user.username %></b>. (<%= link_to "unblock", unblock_user_following_path(@user, @blocking), data: { confirm: "Are you sure you want to unblock #{@user.username}?" } %>)<br /><br />
 
 		<% #user is Following you %>
 		<% elsif current_user.followers.exists?(follower: @user) %>
 
 			<% @following = current_user.followers.where(follower: @user).first %>
 
-			<br /><b><%= @user.username %></b> is following you (<%= link_to "block", block_user_following_path(@user, @following), data: { confirm: "Are you sure \nyou want to block \n#{@user.username}?" } %>)<br /><br />
+			<br /><b><%= @user.username %></b> is following you (<%= link_to "block", block_user_following_path(@user, @following), data: { confirm: "Are you sure you want to block #{@user.username}?" } %>)<br /><br />
 
 		<% end %>
 	<% end %>
 <% end %>
 
 <%= render "beers/table" %>
-<p><%= link_to "Add a beer", new_beer_path %></p>
+<br />
+
+<% if user_signed_in? && @user == current_user %>
+	<p><%= link_to "Add a beer", new_beer_path, class: "btn btn-success" %></p>
+<% end %>

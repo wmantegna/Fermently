@@ -1,6 +1,6 @@
 <% if @beers.count >= 1  %>
 
-	<table class="table-bordered table-hover" cellpadding="5px">
+	<table class="table-bordered table-hover table-responsive" cellpadding="5px">
 		<tr style="background-color:lightgrey;">
 			<th>Name</th>
 			<th>Style</th>
@@ -46,5 +46,6 @@
 	</table>
 
 <% else %>
+	<br />
 	<p>Oops! This user hasn't added any homebrews to Fermently yet!</p>
 <% end %>

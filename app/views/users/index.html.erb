@@ -3,11 +3,11 @@
 <br />
 <%= form_tag "/users", method: :get do %>
 	<%= text_field_tag :query, "", size: "30", placeholder: "username or email" %>
-	<%= submit_tag "Search" %>
+	<%= submit_tag "Search",  class: "btn btn-info"  %>
 <% end %>
 <br />
 
-<table class="table-bordered table-hover" cellpadding="5px">
+<table class="table-bordered table-hover table-responsive" cellpadding="5px">
 	<tr style="background-color:lightgrey;">
 		<th>Username</th>
 		<th>Member Since</th>
