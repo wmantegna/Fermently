@@ -32,7 +32,7 @@
 						</ul>
 
 					<% if user_signed_in? %>
-						<li class="active"><%= link_to "My Profile", "/#{current_user.username}" %></li>
+						<li><%= link_to "My Profile", "/#{current_user.username}" %></li>
 					<% end %>
 				</ul>
 
@@ -48,7 +48,8 @@
 		</div>
 	</nav>
 </header>
-<div style="padding: 55px 20px 20px 20px">
+<div style="margin: 5% 2% 2% 2%">
+
 	<p style="color:red;"><%= flash[:error] %></p>
 	<p style="color:green;"><%= notice %></p>
 	<p class="color:red;"><%= alert %></p>
