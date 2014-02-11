@@ -34,8 +34,3 @@
 	font-size: 16pt;
 	font-weight: bold;
 }
-
-.table tbody tr:hover td,
-.table tbody tr:hover th {
-  background-color: pink;
-}
