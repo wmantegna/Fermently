@@ -32,6 +32,7 @@ gem 'brewery_db'
 gem 'acts_as_indexed'
 
 #Outputting Data to other sources
+gem 'shareable', '~> 0.0.3'
 #gem 'omniauth-facebook', '~> 1.6.0'
 #gem 'omniauth-twitter', '~> 1.0.1'
 
