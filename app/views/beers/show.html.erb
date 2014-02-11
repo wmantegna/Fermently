@@ -7,7 +7,7 @@
 	<p>
 		<b>Brewers:</b> 
 		<% @beer.users.each do |u| %>
-			<%= link_to u.username, user_path  %>
+			<%= link_to u.username, "/#{u.username}"  %>
 		<% end %>
 	</p>
 

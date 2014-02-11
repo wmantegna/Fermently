@@ -30,8 +30,8 @@
 				<li>New Happenings on the site (did my friends follow someone?)</li>
 				<li>Beer Style of the week</li>
 			</ul>
-		<li><i>As a user, I want to be able to share my beer over facebook (<%= link_to "developers.facebook.com", "https://developers.facebook.com/docs/plugins/share-button/" %>).</i></li>
-		<li><i>As a user, I want to be able to share my beer over twitter (<%= link_to "about.twitter.com", "https://about.twitter.com/resources/buttons#tweet" %>).</i></li>
+		<li class="complete">As a user, I want to be able to share my beer over facebook (<%= link_to "shareable", "https://github.com/hermango/shareable" %>, <%= link_to "developers.facebook.com", "https://developers.facebook.com/docs/plugins/share-button/" %>).</li>
+		<li class="complete">As a user, I want to be able to share my beer over twitter (<%= link_to "shareable", "https://github.com/hermango/shareable" %>, <%= link_to "about.twitter.com", "https://about.twitter.com/resources/buttons#tweet" %>).</li>
 		<li class="complete">As an admin, I want to be able to confirm user identity through email (<%= link_to "devise confirmable using ActionMailer", "http://stackoverflow.com/questions/8186584/how-do-i-set-up-email-confirmation-with-devise" %>, <%= link_to "sendGrid Set-up", "https://devcenter.heroku.com/articles/sendgrid" %>).</li> 
 		<li>As an admin, I want to be able to confirm user identity through Twitter (<%= link_to "omniauth RailsCast", "http://asciicasts.com/episodes/241-simple-omniauth" %>, <%= link_to "omniauth-twitter", "https://github.com/arunagw/omniauth-twitter" %>) or facebook (<%= link_to "omniauth-facebook", "https://github.com/plataformatec/devise/wiki/OmniAuth%3A-Overview" %>).</li> 
 		<li><i>As a user, I want all tables to be sortable by column (<%= link_to "railsCast", "http://railscasts.com/episodes/228-sortable-table-columns" %>)</i></li>
@@ -45,17 +45,20 @@
 		<li>As a user, I want to be able to list my homebrews on Untappd (<%= link_to "Untappd API", "https://untappd.com/api/docs" %>).</li>
 		<li>As a user, I want to receive reminders about my beers (<%= link_to "Action Mailer basics -- guides.rubyonrails.org", "http://guides.rubyonrails.org/action_mailer_basics.html" %>, <%= link_to "simple RailsCast", "http://railscasts.com/episodes/61-sending-email" %>).</li>
 		<li>As a developer, I would like to explore streamlined follow/follower system using the <%= link_to "acts_as_follower", "https://github.com/tcocca/acts_as_follower" %> gem.</li>
+		<li>As a Fermently Twitter User, I would like the links to Fermently to be shorter (bit.ly API).</li>
+		<li>As a developer, I would like custom social media messages depending on the path that a user is sharing from.</li>
 	</ol>
 
 	<h3>Ruby Gems in Use</h3>
 	<ul>
 		<li>Devise</li>
 		<li>acts_as_indexed</li>
-		<li>brewery-db (with json & rest-client to get & parse data)</li>
+		<li>brewery-db (with json & rest-client)</li>
 		<li>rails_12factor & pg (interface with PostgreSQL)</li>
 		<li>dotenv-rails</li>
 		<li>bootstrap-sass</li>
+		<li>shareable</li>
 	</ul>
 
 <h3>Thanks</h3>
-<p>I developed this website while taking the <%= link_to "Back-end Web Development", "https://generalassemb.ly/education/back-end-web-development"%> class at General Assembly in NYC. I owe quite a bit of thanks to our fearless instructor, Eric Collins, and our two TA's, Zach Reitano, and Jamal Powell. Also, to my classmates, without whom this process would have been nowhere as fun as it was. Specifically, thanks to Eleanor Whitney, Vish Reddy, and Martin Lerda for their input both in class, and during our many coding session's at an innumberable number of coffee shops around NYC. Lastly, a big shout-out to everyone at GA, my family, friends and roommates, many of whom had to listen to me blabber on and on about how awesome ActiveRecord is, and how frustrating setting custom routes in Rails can be. You guys rock!</p>
+<p>I developed this website while taking the <%= link_to "Back-end Web Development", "https://generalassemb.ly/education/back-end-web-development", target: "new" %> class at General Assembly in NYC. I owe quite a bit of thanks to our fearless instructor, <%= link_to "Eric Collins", "https://github.com/tabfugnic", target: "new" %>, and our two TA's, <%= link_to "Zach Reitano", "https://github.com/zreitano", target: "new" %>, and <%= link_to "Jamal Powell", "https://github.com/Jamalp", target: "new" %>. Also, to my classmates, without whom this process would have been nowhere as fun as it was. Specifically, thanks to Eleanor Whitney, Vish Reddy, and Martin Lerda for their input both in class, and during our many coding session's at an innumberable number of coffee shops around NYC. Lastly, a big shout-out to everyone at GA, my family, friends and roommates, many of whom had to listen to me blabber on and on about how awesome ActiveRecord is, and how frustrating setting custom routes in Rails can be. You guys rock!</p>
