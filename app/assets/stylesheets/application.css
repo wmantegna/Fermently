@@ -10,11 +10,12 @@
  *
  *= require_self
  *= require_tree .
+ *= require jquery.mobile
  */
 
  .complete {
-	color: green;
-	font-weight: bold;
+	color: black;
+
 }
 
 
