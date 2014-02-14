@@ -10,12 +10,11 @@
  *
  *= require_self
  *= require_tree .
- *= require jquery.mobile
  */
 
  .complete {
-	color: black;
-
+	color: green;
+	font-weight: bold;
 }
 
 
@@ -34,4 +33,19 @@
 	text-align: center;
 	font-size: 16pt;
 	font-weight: bold;
+}
+
+.accordionHeader {
+	color: black;
+	font-weight: bold;
+	background-color: lightgray;
+}
+
+.panel-heading, .panel {
+	background-color:whitesmoke;
+}
+
+.panel-heading:hover {
+  background-color: silver;
+  font-weight: bold;
 }
