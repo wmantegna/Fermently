@@ -33,14 +33,15 @@ class BeersController < ApplicationController
 
   def update
     @beer.users.each do |u|
-      unless params[:currentBrewers].include?(u.id)
+      unless params[:currentBrewers].include?(u.id.to_s)
         BeersUsers.where(beer_id: @beer.id, user_id: u.id).first.destroy
       end
     end
 
     unless params[:newBrewers].nil?
       params[:newBrewers].each do |u|
-      @beer.users << User.find(u)
+        @beer.users << User.find(u)
+      end
     end
 
     @beer.update_attributes(beer_params)
@@ -63,7 +64,4 @@ class BeersController < ApplicationController
   def beer_params
   	params.require(:beer).permit(:id, :name, :beer_style_id, :og, :fg, :abv, :dateBrewed, :dateBottled, :priming, :recipe, :rating, :brewerComment)
   end
-
-  
-end
 end
