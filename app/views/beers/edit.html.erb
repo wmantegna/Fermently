@@ -38,7 +38,7 @@
 
 <% @followed.all.each do |f| %>
 	<% if @beer.users.exists?(f.user) == false %>
-  	<%= check_box_tag "newBrewers[]", f.user.id %>
+  	<%= check_box_tag "newBrewers[]", f.user_id %>
   	<label><%= f.user.username %></label> | 
   <% end %>
 <% end %>

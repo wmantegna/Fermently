@@ -32,15 +32,20 @@ class BeersController < ApplicationController
   end
 
   def update
-  	@beer.update_attributes(beer_params)
+    @beer.users.each do |u|
+      unless params[:currentBrewers].include?(u.id)
+        BeersUsers.where(beer_id: @beer.id, user_id: u.id).first.destroy
+      end
+    end
 
     unless params[:newBrewers].nil?
       params[:newBrewers].each do |u|
       @beer.users << User.find(u)
-      end
     end
 
-    redirect_to beer_path
+    @beer.update_attributes(beer_params)
+
+    redirect_to beer_path(@beer)
   end
 
   def destroy
@@ -50,12 +55,15 @@ class BeersController < ApplicationController
     redirect_to beers_path
   end
 
+  def set_beer
+    @beer = Beer.find(params[:id])
+  end
+
   private
   def beer_params
   	params.require(:beer).permit(:id, :name, :beer_style_id, :og, :fg, :abv, :dateBrewed, :dateBottled, :priming, :recipe, :rating, :brewerComment)
   end
 
-  def set_beer
-    @beer = Beer.find(params[:id])
-  end
+  
+end
 end

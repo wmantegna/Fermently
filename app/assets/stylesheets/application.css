@@ -35,12 +35,6 @@
 	font-weight: bold;
 }
 
-.accordionHeader {
-	color: black;
-	font-weight: bold;
-	background-color: lightgray;
-}
-
 .panel-heading, .panel {
 	background-color:whitesmoke;
 }
