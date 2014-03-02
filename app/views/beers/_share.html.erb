@@ -2,7 +2,7 @@
 <table>
 	<tr>
 		<td>
-			<%= twitter_button :url=> @share_url, :text=> "I just brewed a beer! Check it out at Fermently!", :via=> "" %>
+			<%= twitter_button :url=> "", :text=> "I just brewed a beer! Check it out at Fermently! #{@share_url}", :via=> "", :hashtags=> "Fermently" %>
 		</td>
 		<td>
 			<%= facebook_button :send=> 'true', :url=> @share_url, layout: "button" %>
