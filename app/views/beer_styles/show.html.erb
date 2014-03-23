@@ -50,9 +50,7 @@
 		<td><%= @beerStyle.srmMax %></td>
 	</tr>
 </table>
-<br />
-<%= link_to "Beer Styles Home", beer_styles_path, class: "btn btn-info" %>
-<br />
+<%= render "beer_styles/share" %>
 <h2>Fermently Averages</h2>
 <%= render "beers/averages_for_a_beer_style" %>
 <br />
@@ -60,4 +58,5 @@
 <h2>Homebrews made with this style</h2>
 <%= render "beers/table" %>
 <br />
+<%= link_to "Beer Styles Home", beer_styles_path, class: "btn btn-info" %> 
 <%= link_to "Search All Beers", beers_path, class: "btn btn-info" %>

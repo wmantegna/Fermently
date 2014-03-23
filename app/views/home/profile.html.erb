@@ -6,7 +6,7 @@
 <b>Following:</b> <%= link_to @user.followings.count.to_s + " Homebrewers", show_following_path %><br />
 <b>Joined:</b> <%= @user.created_at.strftime("%b %_m, %Y") %><br />
 
-<%= render "/beers/share" %>
+<%= render "/home/share" %>
 
 <% if current_user == @user %>
 	<br />
