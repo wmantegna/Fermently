@@ -26,6 +26,19 @@ class BeersController < ApplicationController
 
   def show
     @comment = Comment.new
+
+
+    @isUserFollowingBrewer = false
+
+    if user_signed_in?
+      @beer.users.each do |u|
+        if u.followers.where(follower_id: current_user).exists?
+          @isUserFollowingBrewer = true
+          break
+        end
+      end
+    end
+
   end
 
   def edit
