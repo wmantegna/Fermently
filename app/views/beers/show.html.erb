@@ -1,40 +1,65 @@
-<h2><%= @beer.name %></h2>
-<b>Beer Style:</b> <%= link_to @beer.beer_style.name, beer_style_path(@beer.beer_style) %><br />
-<b>Recipe:</b> <%= @beer.recipe %><br />
+<div class="row">
+	<div class="col-md-12">
+		<h2>
+			<%= @beer.name %> <small>(rating: <%= @beer.rating %>)</small>
+			
+			<% if user_signed_in? && @beer.users.exists?(current_user) %>
+				<%= link_to "Edit Beer", edit_beer_path, class: "btn btn-primary btn-xs" %>
+			<% end %>
+		</h2>
+</div>
+</div>
+<div class="row">
+	<div class="col-md-4">
+		<b>Beer Style:</b> <%= link_to @beer.beer_style.name, beer_style_path(@beer.beer_style) %><br />
+		<b>Recipe:</b> <%= @beer.recipe %><br />
 
-	<p>
 		<b>Brewers:</b> 
 		<% @beer.users.each do |u| %>
-			<%= link_to u.username, "/#{u.username}"  %>
+		<span class="label label-primary"><%= link_to u.username, "/#{u.username}", style: "color: white;" %></span>
 		<% end %>
-	</p>
+		<br />
+		<br />
+		<b>Description:</b><br /> <%= @beer.description %><br />
+	</div>
 
-<b>OG:</b> <%= @beer.og %><br />
-<b>FG:</b> <%= @beer.fg %><br />
-<b>ABV:</b> <%= @beer.abv %><br />
-<b>Date Brewed:</b> 
-	<% unless @beer.dateBrewed == nil %>
-		<%= @beer.dateBrewed.to_date.strftime("%b %_m, %Y") %>
-	<% end %>
-	<br />
-<b>Date Bottled:</b> 
-	<% unless @beer.dateBottled == nil %>
-		<%= @beer.dateBottled.to_date.strftime("%b %_m, %Y") %>
-	<% end %>
-	<br />
-<b>Priming:</b> <%= @beer.priming %><br />
-<b>Rating:</b> <%= @beer.rating %><br />
-<b>Brewer Comment:</b> <%= @beer.brewerComment %><br />
-<b>Created At:</b> <%= @beer.created_at.to_date.strftime("%b %_m, %Y") %><br />
-<b>Updated At:</b> <%= @beer.updated_at.to_date.strftime("%b %_m, %Y") %><br />
+	<div class="col-md-4">
+		<table class="table">
+			<tr>
+				<th>Date Brewed</th>
+				<th>Date Bottled</th>
+				<th>Priming</th>
+			</tr>
+			<tr>
+				<td>
+					<% unless @beer.dateBrewed == nil %>
+						<%= @beer.dateBrewed.to_date.strftime("%b %_m, %Y") %>
+					<% end %>
+				</td>
+				<td>
+					<% unless @beer.dateBottled == nil %>
+						<%= @beer.dateBottled.to_date.strftime("%b %_m, %Y") %>
+					<% end %>
+				</td>
+				<td><%= @beer.priming %></td>
+			</tr>
+			<tr>
+				<th>OG</th>
+				<th>FG</th>
+				<th>ABV</th>
+			</tr>
+			<tr>
+				<td><%= @beer.og %></td>
+				<td><%= @beer.fg %></td>
+				<td><%= @beer.abv %></td>
+			</tr>
+		</table>
+	</div>
 
-<%= render "beers/share" %>
-
-<br />
-<% if user_signed_in? && @beer.users.exists?(current_user) %>
-	<%= link_to "Edit Beer", edit_beer_path, class: "btn btn-primary" %>
-<% end %>
-
+	<div class="col-md-4">
+		<%= render "beers/share" %>
+	</div>
+</div>
 <h3>Comments</h3>
 <% @beer.comments.each do |c| %>
 	<b><%= c.user.username %></b>: <%= c.text %> <i>(<%= c.created_at.strftime("%b %_m, %Y") %>)</i>	<br />
