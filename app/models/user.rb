@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :email, :uniqueness => { :case_sensitive => false }
   
   has_and_belongs_to_many :beers
+  has_many :comments
   has_many :followers,  class_name: 'Followings', foreign_key: 'user_id',     conditions: "blocked = false"
   has_many :followings, class_name: 'Followings', foreign_key: 'follower_id', conditions: "blocked = false"
   has_many :blockings,  class_name: 'Followings',  foreign_key: 'user_id', conditions: "blocked = true"

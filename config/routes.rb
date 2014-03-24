@@ -1,6 +1,9 @@
 Fermently::Application.routes.draw do
   
-  resources :beers
+  resources :beers do
+    resources :comments
+  end
+  
   resources :beer_styles
 
   devise_for :users

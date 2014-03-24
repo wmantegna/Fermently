@@ -1,6 +1,4 @@
-<h2>Beer View</h2>
-
-<b>Name:</b> <%= @beer.name %><br />
+<h2><%= @beer.name %></h2>
 <b>Beer Style:</b> <%= link_to @beer.beer_style.name, beer_style_path(@beer.beer_style) %><br />
 <b>Recipe:</b> <%= @beer.recipe %><br />
 
@@ -36,4 +34,20 @@
 <% if user_signed_in? && @beer.users.exists?(current_user) %>
 	<%= link_to "Edit Beer", edit_beer_path, class: "btn btn-primary" %>
 <% end %>
-<%= link_to "Search All Beers", beers_path, class: "btn btn-info" %>
+
+<h3>Comments</h3>
+<% @beer.comments.each do |c| %>
+	<b><%= c.user.username %></b>: <%= c.text %> <i>(<%= c.created_at.strftime("%b %_m, %Y") %>)</i>	<br />
+<% end %>
+<br />
+
+<div class="col-md-3">
+<div class="well well-sm">
+	<%= form_for [@beer, @comment] do |f| %>
+		<%= f.label "New Comment" %><br />
+		<%= f.text_area :text, size: "40x5" %><br />
+		<br />
+		<%= f.submit %>
+	<% end %>
+</div>
+</div>

@@ -6,6 +6,7 @@ class Beer < ActiveRecord::Base
 	
 	has_and_belongs_to_many :users
 	belongs_to :beer_style
+	has_many :comments
 
 	def self.search_for(query)
 		 @beers = Beer.where("LOWER(name) LIKE LOWER(:query)", query: "%#{query}%").order(dateBrewed: :desc)

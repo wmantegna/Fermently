@@ -17,9 +17,13 @@ class UsersController < ApplicationController
 		
 		@user.followings.destroy
 		@user.followers.destroy
-		@user.beers.destroy
+
+		BeersUsers.where(user_id: @user).each do |bu|
+			bu.destroy
+		end
 
 		@user.destroy
+		
 		redirect_to users_path
 	end
 
