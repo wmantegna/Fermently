@@ -88,7 +88,7 @@
 	<div class="well well-sm">
 		<% if !user_signed_in? %>
 			Please sign in and follow a brewer of this beer to post a comment.
-		<% elsif @isUserFollowingBrewer %>
+		<% elsif @CanUserComment %>
 
 			<%= form_for [@beer, @comment] do |f| %>
 				<%= f.label "New Comment" %><br />

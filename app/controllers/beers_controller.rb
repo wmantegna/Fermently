@@ -28,20 +28,22 @@ class BeersController < ApplicationController
     @comment = Comment.new
 
 
-    @isUserFollowingBrewer = false
-
-
-
+    #Determine if user has the right to comment on this beer
+    @CanUserComment = false
     if user_signed_in?
       if @beer.users.exists?(current_user)
-        @isUserFollowingBrewer = true
+
+        @CanUserComment = true
+
       else
+        
         @beer.users.each do |u|
           if u.followers.where(follower_id: current_user).exists?
-            @isUserFollowingBrewer = true
+            @CanUserComment = true
             break
           end
         end
+
       end
     end
 
