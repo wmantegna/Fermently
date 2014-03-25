@@ -6,31 +6,7 @@
 	</div>
 </div>
 
-<div class="row pallet">
-
-  <div class="col-md-4 pallet">
-		<p>Did you brew a beer today?</p>
-		<p><%= link_to "Add a Homebrew", new_beer_path, class: "btn btn-success btn-lg" %></p>
-		<p><%= link_to "Search all Homebrews", beers_path, class: "btn btn-info btn-lg" %></p>
-		<br />
-  </div>
-  
-  <div class="col-md-4 pallet">
-  	<p>Beer Styles Info</p>
-  	<p><%= link_to "Learn more about a Beer Style", beer_styles_path, class: "btn btn-info btn-lg" %></p>
-  	<br />
-  </div>
-
-  <div class="col-md-4 pallet">
-			<p>Newest Users:</p>
-			<% @users.each do |u| %>
-				<b><%= link_to u.username, "/#{u.username}" %></b><br />
-			<% end %>
-			<p><%= link_to "Search All Users", users_path, class: "btn btn-info btn-lg" %></p>
-			<br />
-  </div>
-
-</div>
-
 <h3>Check out the latest Homebrews!</h3>
 <%= render "beers/table" %>
+
+

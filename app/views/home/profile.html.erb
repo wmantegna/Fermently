@@ -1,6 +1,5 @@
-<h2>Profile Page</h2>
+<h2><%= @user.username %></h2>
 
-<b>Username:</b> <%= @user.username %><br />
 <b>Homebrews:</b> <%= @beers.count %><br />
 <b>Followers:</b> <%= link_to @user.followers.count.to_s + " Homebrewers", show_followers_path %><br />
 <b>Following:</b> <%= link_to @user.followings.count.to_s + " Homebrewers", show_following_path %><br />
@@ -21,17 +20,17 @@
 		
 		<% #User Blocked current_user %>
 		<% if @user.blockings.exists?(follower: current_user) %>
-			<b><%= @user.username %></b> has blocked you!
+			<b><%= @user.username %></b> has blocked you!<br />
 
 		<% else %>
 			<% #current_user is following user %>	
 			<% if @user.followers.exists?(follower: current_user) %>
 
 				<% @following = current_user.followings.where(user: @user).first %>
-				<%= link_to "Stop following #{@user.username}", delete_user_following_path(@user, @following), class: "btn btn-primary" %><br />
+				<%= link_to "Stop following #{@user.username}", delete_user_following_path(@user, @following), class: "btn btn-primary" %><br /><br />
 
 			<% else %>
-				<%= link_to "Follow", new_user_following_path(@user), class: "btn btn-primary" %><br />
+				<%= link_to "Follow", new_user_following_path(@user), class: "btn btn-primary" %><br /><br />
 			<% end %>
 		<% end %>
 

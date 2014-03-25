@@ -31,7 +31,7 @@
 			<td><%= b.rating %></td>
 			<td>
 				<% b.users.each do |u| %>
-					<%= link_to u.username, "/#{u.username}" %><br />
+					<span class="label label-primary"><%= link_to u.username, "/#{u.username}", style: "color: white;" %></span>
 				<% end %>
 			</td>
 			<td>

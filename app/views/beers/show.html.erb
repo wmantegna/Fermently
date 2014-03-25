@@ -4,7 +4,7 @@
 			<%= @beer.name %> <small>(rating: <%= @beer.rating %>)</small>
 			
 			<% if user_signed_in? && @beer.users.exists?(current_user) %>
-				<%= link_to "Edit Beer", edit_beer_path, class: "btn btn-primary btn-xs" %>
+				<%= link_to "Edit Beer", edit_beer_path, class: "btn btn-primary btn-sm" %>
 			<% end %>
 		</h2>
 </div>
@@ -78,27 +78,33 @@
 		<%= render "beers/share" %>
 	</div>
 </div>
-<h3>Comments</h3>
-<% @beer.comments.each do |c| %>
-	<b><%= c.user.username %></b>: <%= c.text %> <i>(<%= c.created_at.strftime("%b %_m, %Y") %>)</i>	<br />
-<% end %>
-<br />
 
-<div class="col-md-3">
-	<div class="well well-sm">
-		<% if !user_signed_in? %>
-			Please sign in and follow a brewer of this beer to post a comment.
-		<% elsif @CanUserComment %>
-
-			<%= form_for [@beer, @comment] do |f| %>
-				<%= f.label "New Comment" %><br />
-				<%= f.text_area :text, size: "40x5" %><br />
-				<br />
-				<%= f.submit %>
-			<% end %>
-
-		<% else %>
-			Please follow a brewer of this beer to post a comment.
+<div class="row">
+	<div class="col-md-12">
+		<h3>Comments</h3>
+		<% @beer.comments.each do |c| %>
+			<b><%= c.user.username %></b>: <%= c.text %> <i>(<%= c.created_at.strftime("%b %_m, %Y") %>)</i>	<br />
 		<% end %>
+		<br />
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3">
+		<div class="well well-sm">
+			<% if !user_signed_in? %>
+				Please sign in and follow a brewer of this beer to post a comment.
+			<% elsif @CanUserComment %>
+
+				<%= form_for [@beer, @comment] do |f| %>
+					<%= f.label "New Comment" %><br />
+					<%= f.text_area :text, size: "40x5" %><br />
+					<br />
+					<%= f.submit %>
+				<% end %>
+
+			<% else %>
+				Please follow a brewer of this beer to post a comment.
+			<% end %>
+		</div>
 	</div>
 </div>
