@@ -30,11 +30,17 @@ class BeersController < ApplicationController
 
     @isUserFollowingBrewer = false
 
+
+
     if user_signed_in?
-      @beer.users.each do |u|
-        if u.followers.where(follower_id: current_user).exists?
-          @isUserFollowingBrewer = true
-          break
+      if @beer.users.exists?(current_user)
+        @isUserFollowingBrewer = true
+      else
+        @beer.users.each do |u|
+          if u.followers.where(follower_id: current_user).exists?
+            @isUserFollowingBrewer = true
+            break
+          end
         end
       end
     end
@@ -76,6 +82,6 @@ class BeersController < ApplicationController
 
   private
   def beer_params
-  	params.require(:beer).permit(:id, :name, :beer_style_id, :og, :fg, :abv, :dateBrewed, :dateBottled, :priming, :recipe, :rating, :brewerComment)
+  	params.require(:beer).permit(:id, :name, :beer_style_id, :og, :fg, :abv, :dateBrewed, :dateBottled, :priming, :recipe, :rating, :description)
   end
 end

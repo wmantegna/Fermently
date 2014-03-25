@@ -11,16 +11,34 @@
 </div>
 <div class="row">
 	<div class="col-md-4">
-		<b>Beer Style:</b> <%= link_to @beer.beer_style.name, beer_style_path(@beer.beer_style) %><br />
-		<b>Recipe:</b> <%= @beer.recipe %><br />
+		<table class="table">
+			<tr>
+				<th width="50%">Beer Style</th>
+				<th>Recipe</th>
+			</tr>
+			<tr>
+				<td><%= link_to @beer.beer_style.name, beer_style_path(@beer.beer_style) %></td>
+				<td><%= @beer.recipe %></td>
+			</tr>
+			<tr>
+				<th>Brewers</th>
+				<td>
+					<% @beer.users.each do |u| %>
+						<span class="label label-primary"><%= link_to u.username, "/#{u.username}", style: "color: white;" %></span>
+					<% end %>
+				</td>
+			</tr>
+		</table>
 
-		<b>Brewers:</b> 
-		<% @beer.users.each do |u| %>
-		<span class="label label-primary"><%= link_to u.username, "/#{u.username}", style: "color: white;" %></span>
-		<% end %>
-		<br />
-		<br />
-		<b>Description:</b><br /> <%= @beer.description %><br />
+		<table class="table">
+			<tr>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td colspan="2"><%= @beer.description %></td>
+			</tr>
+		</table>
+
 	</div>
 
 	<div class="col-md-4">
