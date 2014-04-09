@@ -43,3 +43,12 @@
   background-color: silver;
   font-weight: bold;
 }
+
+.nav-center {
+    margin:0;
+    float:none;
+}
+
+.navbar-inner{
+    text-align:center;
+}
