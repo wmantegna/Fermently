@@ -4,10 +4,7 @@ class BeerStyle < ActiveRecord::Base
 	has_many :beers
 
 	def self.search_for(query)
-		if query.nil? || query.empty?
-			@styles = BeerStyle.all
-		else
 			@styles = BeerStyle.find_with_index(query)
-		end
+			@styles = BeerStyle.where("LOWER(name) LIKE LOWER(:query) OR LOWER(category) LIKE LOWER(:query) OR LOWER(description) LIKE LOWER(:query)", query: "%#{query}%").order(name: :asc)
 	end
 end

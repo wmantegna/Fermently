@@ -31,8 +31,6 @@ gem 'json'
 gem 'rest-client'
 gem 'brewery_db'
 
-#Better Search
-gem 'acts_as_indexed'
 
 #Outputting Data to other sources
 gem 'shareable', '~> 0.0.3'

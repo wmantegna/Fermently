@@ -16,12 +16,7 @@ class User < ActiveRecord::Base
 
 
   def self.search_for(query)
-    if query.nil? || query.empty?
-      @users = User.all
-    else
-      @users = User.where("LOWER(username) LIKE LOWER(:query) OR LOWER(email) LIKE LOWER(:query)", query: "%#{query}%").order(username: :asc)
-      #@users = User.find_with_index(query)
-    end
+    @users = User.where("LOWER(username) LIKE LOWER(:query) OR LOWER(email) LIKE LOWER(:query)", query: "%#{query}%").order(username: :asc)
   end
 
 
