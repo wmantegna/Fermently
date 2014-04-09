@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  acts_as_indexed :fields => [:username, :email]
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
