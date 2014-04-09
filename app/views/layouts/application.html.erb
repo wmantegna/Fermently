@@ -17,14 +17,14 @@
 	        <span class="sr-only">Toggle navigation</span>
 	        <span class="icon-bar"></span>
 	      </button>
-				<%= link_to image_tag("jug_100_yellow.jpg", style: "width:50px; height:50px;"), {url: root_path}%>
+				<%= link_to image_tag("jug_100_yellow.jpg", style: "width:50px; height:50px;"), {controller: "home", action: "index"} %>
 	    </div>
     </div>
 
 
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	    	<ul class="nav navbar-nav">
-					<li><%= link_to "All Beers", beers_path %></li>
+					<li><%= link_to "Beers", beers_path %></li>
 					<li><%= link_to "Beer Styles", beer_styles_path %></li>
 					<li><%= link_to "Users", users_path %></li>
 					<li class="dropdown">
